@@ -1,4 +1,4 @@
-# capital
+# Vaitex-Dashboard
 
 ## Project setup
 ```
