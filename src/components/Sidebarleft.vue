@@ -7,7 +7,7 @@
             </div>
             <div class="left-top-icon mb-3">
                 <i class="far fa-star ml-5"></i>
-                <i class="far fa-bell"></i>
+                <i class="far fa-bell pl-3"></i>
             </div>
         </div>
         <div class="left-body mt-3">
@@ -80,10 +80,10 @@ line-height: 1.3
    
 }
 .left-top-icon .fa-bell{
-    position: relative;
-    top: 0.5rem;
-    right: -1rem;
+    top: 5rem;
+    right: 1rem;
 }
+
 .left-body .fas{
     font-size: 18px
 }
