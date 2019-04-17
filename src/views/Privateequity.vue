@@ -116,33 +116,40 @@ components:{
 .equity{
     color: #578A8D
 }
-.private-equity{
-      position: relative;
+
+.equity .private-equity{
+    position: relative;
 }
-.private-equity input{
+
+.equity .private-equity input{
     width:100%;
     padding: 10px;
     border-radius: 8px;
-    border: 1px solid #578A8D
+    border: 1px solid #578A8D;
 }
+
+.equity .private-equity input:focus{
+    outline: none;
+}
+
 .private-equity i{
-position: absolute;
-right:14px;
-top: 9px;
-font-size: 25px;
-color: #578A8D
+    position: absolute;
+    right:14px;
+    top: 9px;
+    font-size: 25px;
+    color: #578A8D;
 }
 .first-text{
-font-size: 28px;
-opacity: .5;
+    font-size: 28px;
+    opacity: .5;
 }
 .second-text{
-font-size: 32px;
-opacity: .5;
+    font-size: 32px;
+    opacity: .5;
 }
 .third-text{
-opacity: .5;
-font-weight: bold
+    opacity: .5;
+    font-weight: bold;
 }
 .header{
     font-size: 16px

@@ -6,7 +6,7 @@
                 <label>@John.Smith</label>
             </div>
             <div class="left-top-icon mb-3">
-                <i class="far fa-star p-3"></i>
+                <i class="far fa-star ml-5"></i>
                 <i class="far fa-bell"></i>
             </div>
         </div>
@@ -38,7 +38,7 @@
         <div class="left-bottom mt-5">
             <p>My recent views</p>
             <ul class="list-unstyled mt-2 list-menu">
-                <li v-for="i in 6">
+                <li v-for="i in 6" :key="i">
                     <i class="far fa-file"></i> <a class="space" href="">XYZ Capital LLP Quater....</a>
                 </li>
             </ul>
@@ -76,12 +76,13 @@ line-height: 1.3
 
 }
 .left-top-icon .far{
-    font-size: 32px;
+    font-size: 20px;
    
 }
 .left-top-icon .fa-bell{
     position: relative;
-    top:1px
+    top: 0.5rem;
+    right: -1rem;
 }
 .left-body .fas{
     font-size: 18px

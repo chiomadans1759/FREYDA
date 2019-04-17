@@ -1,4 +1,4 @@
-# Vaitex-Dashboard
+# Vaitex-Frontend
 
 ## Project setup
 ```

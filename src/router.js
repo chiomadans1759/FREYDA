@@ -21,12 +21,12 @@ export default new Router({
         {
           path:'private-equity',
           name: 'private-equity',
-          component: () => import(/* webpackChunkName: "about" */ './views/Privateequity.vue'),
+          component: () => import('./views/Privateequity.vue'),
         },
         {
           path:'pantheon',
           name: 'pantheon',
-          component: () => import(/* webpackChunkName: "about" */ './views/Pantheon.vue'),
+          component: () => import('./views/Pantheon.vue'),
         },
       ]
     },
