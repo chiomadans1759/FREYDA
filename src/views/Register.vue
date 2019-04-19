@@ -3,6 +3,40 @@
     <div class="row">
       <div class="container">
         <h2>Sign Up to use Vaitex</h2>
+        <form>
+          <div class="form-group">
+            <input type="text" class="form-control" placeholder="Enter first name">
+            <!-- <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small> -->
+          </div>
+
+          <div class="form-group">
+            <input type="text" class="form-control" placeholder="Enter last name">
+            <!-- <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small> -->
+          </div>
+
+           <div class="form-group">
+            <input type="text" class="form-control" placeholder="Enter company name">
+            <!-- <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small> -->
+          </div>
+
+          <div class="form-group">
+            <input type="text" class="form-control" placeholder="Enter user name">
+            <!-- <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small> -->
+          </div>
+
+          <div class="form-group">
+            <input type="email" class="form-control" placeholder="Enter email address">
+            <!-- <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small> -->
+          </div>
+
+          <div class="form-group">
+            <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+          </div>
+
+          <div class="d-flex justify-content-end">
+            <button type="submit" class="btn btn-primary submit-btn">Submit</button>
+          </div>
+        </form>
       </div>
     </div>
   </main>
@@ -16,5 +50,33 @@ export default {
 </script>
 
 <style scoped>
+#register-page {
+  height: 100vh;
+}
+
+#register-page h2 {
+  text-align: center;
+  font-weight: bold;
+  color: rgb(59, 145, 151);
+  margin-top: 2rem;
+  text-transform: uppercase;
+}
+
+#register-page form {
+  width: 40%;
+  margin: auto;
+  margin-top: 3rem;
+  background: #578a8d;
+  padding: 3rem;
+}
+
+#register-page .submit-btn {
+  background: rgb(243, 248, 248);
+  color: #222222;
+}
+
+#register-page .form-group input:active {
+  outline: none;
+}
 
 </style>

@@ -12,6 +12,7 @@ export default {}
 
 #app{
 	font-family: 'Montserrat', sans-serif;
+	background: rgb(243, 248, 248);
 }
 
 </style>

@@ -1,6 +1,5 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import Register from './views/Register.vue'
 
 Vue.use(Router)
 
@@ -11,11 +10,10 @@ export default new Router({
     {
       path: '/',
       name: 'register-page',
-      component: Register
+      component: () => import('@/views/Register.vue')
     },
     {
       path: '/admin',
-      name: 'admin',
       component: () => import('@/layouts/AdminLayout.vue'),
       
       children:[
@@ -26,7 +24,7 @@ export default new Router({
         {
           path:'private-equity',
           name: 'private-equity',
-          component: () => import('./views/Privateequity.vue'),
+          component: () => import('./views/PrivateEquity.vue'),
         },
         {
           path:'pantheon',

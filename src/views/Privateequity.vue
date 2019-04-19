@@ -86,27 +86,27 @@
     <div class="row d-flex justify-content-around mt-5">
         <div v-for="i in 5" :class="col" :key="i">
             <div class="chart-container">
-            <doughnutchart  />
+            <DoughnutChart  />
             <p class="text-center pt-1">By Exercise</p>
             </div>
          </div>
         </div>
         </div>
     </div>
-<div class="equity-line-chart mt-5">
-<linechart />
-</div>
+    <div class="equity-line-chart mt-5">
+        <LineChart />
+    </div>
     </main>
 </template>
 
 <script>
-import doughnutchart from '@/components/Doughnutchart.vue'
-import linechart from '@/components/Linechart.vue'
+import DoughnutChart from '@/components/DoughnutChart.vue'
+import LineChart from '@/components/LineChart.vue'
 
 export default {
 components:{
-    doughnutchart,
-    linechart
+    DoughnutChart,
+    LineChart
 }
 }
 </script>

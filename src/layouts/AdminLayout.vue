@@ -7,14 +7,14 @@
 </template>
 
 <script>
-import sidebarLeft from "@/components/Sidebarleft.vue"
-import sidebarRight from "@/components/Sidebarright.vue"
+import SidebarLeft from "@/components/SidebarLeft.vue"
+import SidebarRight from "@/components/SidebarRight.vue"
 
 
 export default {
   components:{
-    sidebarLeft,
-    sidebarRight
+    SidebarLeft,
+    SidebarRight
   }
 }
 </script>
