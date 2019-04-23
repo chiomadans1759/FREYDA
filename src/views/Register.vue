@@ -2,7 +2,7 @@
   <main id="register-page">
     <div class="row">
       <div class="container">
-        <h2>Sign Up to use Vaitex</h2>
+        <h2>Sign Up to use Freyda</h2>
         <form class="registeration-form">
           <div class="form-group">
             <input type="text" class="form-control" placeholder="Enter first name" ref="firstName">
@@ -45,8 +45,8 @@
 <script>
 export default {
   name: 'register-page',
-  data(){
-    return this.$nextTick(() => this.$refs.firstName.focus())
+  mounted() {
+    this.$nextTick(() => this.$refs.firstName.focus())
   }
   
 }
@@ -55,6 +55,7 @@ export default {
 <style scoped>
 #register-page {
   height: 100vh;
+  margin: 2rem;
 }
 
 #register-page h2 {
@@ -90,5 +91,15 @@ export default {
 #register-page button {
   border: none;
 }
+
+@media (max-width: 767.98px){ 
+  #register-page form {
+  width: 100%;
+  margin: auto;
+  margin-top: 3rem;
+  background: #578a8d;
+  padding: 3rem;
+}
+ }
 
 </style>

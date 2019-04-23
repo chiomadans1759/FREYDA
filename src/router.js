@@ -13,6 +13,11 @@ export default new Router({
       component: () => import('@/views/Register.vue')
     },
     {
+      path: '/login',
+      name: 'Login-page',
+      component: () => import('@/views/Login.vue')
+    },
+    {
       path: '/admin',
       component: () => import('@/layouts/AdminLayout.vue'),
       
