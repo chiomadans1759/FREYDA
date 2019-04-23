@@ -1,11 +1,10 @@
 <template>
-  <main id="login-page">
+  <main id="auth">
     <div class="row">
       <div class="container">
-        <form class="registeration-form">
+        <form class="auth-form">
           <div class="form-group">
-            <input type="text" class="form-control" placeholder="Enter user name">
-            <!-- <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small> -->
+            <input type="text" class="form-control" placeholder="Username">
           </div>
 
           <div class="form-group">
@@ -23,23 +22,72 @@
 
 <script>
 export default {
-  name: 'Login-page'
+  name: 'Login-Page'
   
 }
 </script>
 
 <style scoped>
 
-#login-page {
+#auth {
   height: 100vh;
+  background: #578a8d;
 }
 
-#login-page form {
+#auth form {
   width: 40%;
   margin: auto;
   margin-top: 3rem;
   background: #578a8d;
   padding: 3rem;
+  margin-top: 10rem;
+  box-shadow: 6px 12px 24px rgba(0, 0, 0, 0.20);
+}
+
+#auth .form-control {
+  border-radius: 0 !important;
+  border: 1px solid rgba(243, 248, 248, 0.4);
+  background: rgba(243, 248, 248, 0.1);
+  color: rgb(243, 248, 248) !important;
+}
+
+#auth .form-control:focus {
+  border: 1px solid rgb(243, 248, 248);
+}
+
+
+#auth .auth-form input:focus {
+  outline: none !important;
+  box-shadow: none;
+}
+
+#auth .auth-form input::-webkit-input-placeholder {
+  color: rgba(243, 248, 248, 0.68);
+}
+
+#auth .auth-form button {
+  width: 100%;
+  border: 1px solid rgb(243, 248, 248);
+  border-radius: 0;
+  background: rgb(243, 248, 248);
+  color: #222222;
+}
+
+#auth .auth-form button:hover {
+  background: rgb(211, 216, 216);
+  box-shadow: 6px 12px 24px rgba(0, 0, 0, 0.20);
+}
+
+@media (max-width: 767.98px){ 
+  #auth form {
+  width: 100%;
+  margin: auto;
+  margin-top: 3rem;
+  background: #578a8d;
+  padding: 3rem;
+  margin-top: 10rem;
+}
+
 }
 
 </style>

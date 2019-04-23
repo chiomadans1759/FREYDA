@@ -1,36 +1,31 @@
 <template>
-  <main id="register-page">
+  <main id="auth">
     <div class="row">
       <div class="container">
         <h2>Sign Up to use Freyda</h2>
-        <form class="registeration-form">
+        <form class="auth-form">
           <div class="form-group">
-            <input type="text" class="form-control" placeholder="Enter first name" ref="firstName">
+            <input type="text" class="form-control" placeholder="First name" ref="firstName">
             <!-- <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small> -->
           </div>
 
           <div class="form-group">
-            <input type="text" class="form-control" placeholder="Enter last name">
+            <input type="text" class="form-control" placeholder="Last name">
             <!-- <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small> -->
           </div>
 
            <div class="form-group">
-            <input type="text" class="form-control" placeholder="Enter company name">
+            <input type="text" class="form-control" placeholder="Company name">
             <!-- <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small> -->
           </div>
 
           <div class="form-group">
-            <input type="text" class="form-control" placeholder="Enter user name">
+            <input type="email" class="form-control" placeholder="Email address">
             <!-- <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small> -->
           </div>
 
           <div class="form-group">
-            <input type="email" class="form-control" placeholder="Enter email address">
-            <!-- <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small> -->
-          </div>
-
-          <div class="form-group">
-            <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+            <input type="password" class="form-control" placeholder="Password">
           </div>
 
           <div class="d-flex justify-content-end">
@@ -53,47 +48,64 @@ export default {
 </script>
 
 <style scoped>
-#register-page {
+#auth {
   height: 100vh;
-  margin: 2rem;
+  background: #578a8d;
 }
 
-#register-page h2 {
+#auth h2 {
   text-align: center;
   font-weight: bold;
-  color: rgb(59, 145, 151);
+  color: rgb(243, 248, 248);
   margin-top: 2rem;
   text-transform: uppercase;
 }
 
-#register-page form {
+#auth form {
   width: 40%;
   margin: auto;
   margin-top: 3rem;
   background: #578a8d;
   padding: 3rem;
+  box-shadow: 6px 12px 24px rgba(0, 0, 0, 0.20);
 }
 
-#register-page .submit-btn {
-  background: rgb(243, 248, 248);
-  color: #222222;
-}
-
-#register-page .form-control {
+#auth .form-control {
   border-radius: 0 !important;
+  border: 1px solid rgba(243, 248, 248, 0.4);
+  background: rgba(243, 248, 248, 0.1);
+  color: rgb(243, 248, 248) !important;
 }
 
-#register-page .registeration-form input:focus {
+#auth .form-control:focus {
+  border: 1px solid rgb(243, 248, 248);
+}
+
+
+#auth .auth-form input:focus {
   outline: none !important;
   box-shadow: none;
 }
 
-#register-page button {
-  border: none;
+#auth .auth-form input::-webkit-input-placeholder {
+  color: rgba(243, 248, 248, 0.68);
+}
+
+#auth .auth-form button:hover {
+  background: rgb(211, 216, 216);
+  box-shadow: 6px 12px 24px rgba(0, 0, 0, 0.20);
+}
+
+#auth .auth-form button {
+  width: 100%;
+  border: 1px solid rgb(243, 248, 248);
+  border-radius: 0;
+  background: rgb(243, 248, 248);
+  color: #222222;
 }
 
 @media (max-width: 767.98px){ 
-  #register-page form {
+  #auth form {
   width: 100%;
   margin: auto;
   margin-top: 3rem;
