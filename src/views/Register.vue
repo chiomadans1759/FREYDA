@@ -3,9 +3,9 @@
     <div class="row">
       <div class="container">
         <h2>Sign Up to use Vaitex</h2>
-        <form>
+        <form class="registeration-form">
           <div class="form-group">
-            <input type="text" class="form-control" placeholder="Enter first name">
+            <input type="text" class="form-control" placeholder="Enter first name" ref="firstName">
             <!-- <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small> -->
           </div>
 
@@ -44,7 +44,10 @@
 
 <script>
 export default {
-  name: 'register-page'
+  name: 'register-page',
+  data(){
+    return this.$nextTick(() => this.$refs.firstName.focus())
+  }
   
 }
 </script>
@@ -75,8 +78,17 @@ export default {
   color: #222222;
 }
 
-#register-page .form-group input:active {
-  outline: none;
+#register-page .form-control {
+  border-radius: 0 !important;
+}
+
+#register-page .registeration-form input:focus {
+  outline: none !important;
+  box-shadow: none;
+}
+
+#register-page button {
+  border: none;
 }
 
 </style>

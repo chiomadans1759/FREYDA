@@ -15,7 +15,7 @@
             <ul class="list-unstyled mt-2 list-menu">
                 <li>
                     <i class="fas fa-chess-rook text-white"></i>
-                    <router-link to="/private-equity" class="pl-2 text-white" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
+                    <router-link to="/admin/private-equity" class="pl-2 text-white" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
                         Private Equity
                     </router-link>
                     <div class="collapse" id="collapseExample">
