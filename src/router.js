@@ -29,7 +29,7 @@ export default new Router({
         {
           path:'private-equity',
           name: 'private-equity',
-          component: () => import('./views/PrivateEquity.vue'),
+          component: () => import('@/views/PrivateEquity.vue'),
         },
         {
           path:'pantheon',
