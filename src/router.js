@@ -3,7 +3,7 @@ import Router from 'vue-router'
 
 Vue.use(Router)
 
-export default new Router({
+export const router = new Router({
   mode: 'history',
   base: process.env.BASE_URL,
   routes: [
@@ -39,6 +39,23 @@ export default new Router({
       ]
     },
 
+    {
+      path: '*',
+      redirect: '/'
+    }
 
   ]
-})
+});
+
+router.beforeEach((to, from, next) => {
+  // redirect to index page if not logged in and trying to access a protected route
+  const publicPages = ['/', '/login'];
+  const authRequired = !publicPages.includes(to.path);
+  const loggedIn = localStorage.getItem('freydatoken');
+
+  if (authRequired && !loggedIn) {
+    return next('/login');
+  }
+
+  next();
+});

@@ -3,11 +3,6 @@
     <div class="row">
       <div class="container">
         <h2>Sign Up to use Freyda</h2>
-        <div
-          class="alert alert-danger"
-          role="alert"
-          v-show="getErrors.message"
-        >{{ getErrors.message }}</div>
         <form class="auth-form" @submit.prevent="handleSubmit">
           <div class="form-group">
             <label for="firstName">First Name</label>
@@ -132,7 +127,11 @@
           </div>
 
           <div class="d-flex justify-content-center">
-            <button type="submit" class="btn btn-primary submit-btn">Submit</button>
+            <button
+              type="submit"
+              class="btn btn-primary submit-btn"
+              :disabled="this.auth.isFetching"
+            >{{ this.auth.isFetching ? 'Submitting...' : 'Submit' }}</button>
           </div>
         </form>
       </div>
@@ -141,7 +140,7 @@
 </template>
 
 <script>
-import { mapActions } from "vuex";
+import { mapState, mapActions } from "vuex";
 import { required, email, sameAs } from "vuelidate/lib/validators";
 
 export default {
@@ -190,31 +189,45 @@ export default {
 
     handleSubmit(event) {
       this.submitted = true;
-      this.errors = {};
 
       this.$v.$touch();
       if (this.$v.$invalid) {
         return;
       }
-      let user = {
-        firstName: this.user.firstName,
-        lastName: this.user.lastName,
-        username: this.user.username,
-        companyName: this.user.companyName,
-        email: this.user.email,
-        password: this.user.password
-      };
-      this.register(user);
+
+      let {
+        firstName,
+        lastName,
+        username,
+        companyName,
+        email,
+        password
+      } = this.user;
+      this.register(this.user)
+        .then(() => {
+          this.$swal({
+            position: "top-end",
+            type: "success",
+            title: `Welcome ${this.auth.user.firstName}`,
+            showConfirmButton: false,
+            timer: 2000
+          });
+        })
+        .catch(error => {
+          this.$swal({
+            position: "top-end",
+            height: 50,
+            type: "error",
+            title: error.message,
+            showConfirmButton: false,
+            timer: 2000
+          });
+        });
     }
   },
 
   computed: {
-    getUser() {
-      return this.$store.getters.getUser;
-    },
-    getErrors() {
-      return this.$store.getters.getErrors;
-    }
+    ...mapState(["auth"])
   }
 };
 </script>
