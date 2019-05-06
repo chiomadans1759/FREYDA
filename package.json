@@ -7,12 +7,18 @@
     "build": "vue-cli-service build"
   },
   "dependencies": {
+    "axios": "^0.18.0",
     "babel-eslint": "^10.0.1",
     "chart.js": "^2.8.0",
     "core-js": "^2.6.5",
+    "js-cookie": "^2.2.0",
+    "node-sass": "^4.12.0",
+    "sass-loader": "^7.1.0",
     "vue": "^2.6.6",
     "vue-chartjs": "^3.4.2",
     "vue-router": "^3.0.1",
+    "vue-sweetalert2": "^1.6.4",
+    "vuelidate": "^0.7.4",
     "vuex": "^3.0.1"
   },
   "devDependencies": {
