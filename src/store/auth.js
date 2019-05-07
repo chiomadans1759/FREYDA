@@ -1,9 +1,9 @@
 import http from '../utils/http';
-import { router } from '../router';
 
 export default {
   state: {
     isFetching: false,
+    isAuthenticated: false,
     user: {},
   },
   mutations: {
@@ -13,6 +13,7 @@ export default {
 
     setAuthSuccess(state, user) {
       state.user = user;
+      state.isAuthenticated = true;
     },
 
     endAuthRequest(state) {
@@ -30,7 +31,6 @@ export default {
         localStorage.setItem('freydatoken', token);
         http.defaults.headers.common['Authorization'] = token;
         commit('setAuthSuccess', user);
-        router.push('/admin')
         commit('endAuthRequest');
       } catch (error) {
         commit('endAuthRequest');
@@ -47,7 +47,6 @@ export default {
         localStorage.setItem('freydatoken', token);
         http.defaults.headers.common['Authorization'] = token;
         commit('setAuthSuccess', user);
-        router.push('/admin')
         commit('endAuthRequest');
       } catch (error) {
         commit('endAuthRequest');
@@ -56,11 +55,6 @@ export default {
     }
   },
   getters: {
-    getUser: (state) => {
-      if (state.user === {}) {
-        return {};
-      }
-      return state.user;
-    },
+    isAuthenticated: state => state.isAuthenticated,
   },
 };
