@@ -4,7 +4,9 @@ const token = localStorage.getItem('freydatoken');
 
 const http = axios.create({
   baseURL: process.env.VUE_APP_API,
-  headers: { token }
+  headers: {
+    'x-access-token': token
+  }
 });
 
 export default http;

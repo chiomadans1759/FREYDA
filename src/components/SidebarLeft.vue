@@ -5,7 +5,6 @@
         <div class="text-white">ABC Capital LLP</div>
         <label>@John.Smith</label>
       </div>
-      <div>{{user}}</div>
       <div class="left-top-icon mb-3">
         <i class="far fa-star ml-5"></i>
         <i class="far fa-bell pl-3"></i>
@@ -59,7 +58,18 @@
 </template>
 
 <script>
-export default {};
+import { mapState, mapActions } from "vuex";
+export default {
+  methods: {
+    ...mapActions(["getInvestments"])
+  },
+  mounted() {
+    this.getInvestments();
+  },
+  computed: {
+    ...mapState(["auth", "investments"])
+  }
+};
 </script>
 
 <style scoped>
