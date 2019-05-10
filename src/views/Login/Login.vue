@@ -84,6 +84,7 @@ export default {
       let { identifier, password } = this.user;
       this.login(this.user)
         .then(() => {
+          this.$router.push("/admin/private-equity");
           this.$swal({
             position: "top-end",
             type: "success",

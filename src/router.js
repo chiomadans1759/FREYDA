@@ -1,5 +1,7 @@
 import Vue from 'vue'
+import jwt from 'jwt-decode';
 import Router from 'vue-router'
+import store from './store';
 
 Vue.use(Router)
 
@@ -20,6 +22,9 @@ export const router = new Router({
     {
       path: '/admin',
       component: () => import('@/layouts/AdminLayout.vue'),
+      meta: {
+        requiresAuth: true
+      },
 
       children: [
         {
@@ -38,24 +43,21 @@ export const router = new Router({
         },
       ]
     },
-
-    {
-      path: '*',
-      redirect: '/'
-    }
-
   ]
 });
 
 router.beforeEach((to, from, next) => {
-  // redirect to index page if not logged in and trying to access a protected route
-  const publicPages = ['/', '/login'];
-  const authRequired = !publicPages.includes(to.path);
-  const loggedIn = localStorage.getItem('freydatoken');
-
-  if (authRequired && !loggedIn) {
-    return next('/login');
+  const currentUser = localStorage.getItem('freydatoken');
+  const requiresAuth = to.matched.some(record => record.meta.requiresAuth);
+  if (currentUser) {
+    const user = jwt(currentUser, process.env.SECRET_KEY);
+    store.commit('setAuthSuccess', user);
   }
-
-  next();
+  if (requiresAuth && !currentUser) {
+    next('/login');
+  } else if (requiresAuth && currentUser) {
+    next();
+  } else {
+    next();
+  }
 });

@@ -205,6 +205,7 @@ export default {
       } = this.user;
       this.register(this.user)
         .then(() => {
+          this.$router.push("/admin");
           this.$swal({
             position: "top-end",
             type: "success",

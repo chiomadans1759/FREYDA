@@ -5,6 +5,10 @@
 npm install
 ```
 
+```
+Once installation is done, create a `.env` file with the deatils in the `.env.example`
+```
+
 ### Compiles and hot-reloads for development
 ```
 npm run serve
