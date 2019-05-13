@@ -1,6 +1,6 @@
 <template>
-  <main class="left-side">
-    <div class="left-top">
+  <main class="admin-sidebar">
+    <header class="top">
       <div class="left-top-text">
         <div class="text-white">ABC Capital LLP</div>
         <label>@John.Smith</label>
@@ -9,8 +9,9 @@
         <i class="far fa-star ml-5"></i>
         <i class="far fa-bell pl-3"></i>
       </div>
-    </div>
-    <div class="left-body mt-3">
+    </header>
+
+    <section class="body mt-3">
       <p>My coverage</p>
       <ul class="list-unstyled mt-2 list-menu">
         <li>
@@ -44,8 +45,9 @@
           <a class="space" href>Fund Sleeve A</a>
         </li>
       </ul>
-    </div>
-    <div class="left-bottom mt-5">
+    </section>
+
+    <footer class="bottom mt-5">
       <p>My recent views</p>
       <ul class="list-unstyled mt-2 list-menu">
         <li v-for="i in 6" :key="i">
@@ -53,13 +55,15 @@
           <a class="space" href>XYZ Capital LLP Quater....</a>
         </li>
       </ul>
-    </div>
+    </footer>
   </main>
 </template>
 
 <script>
-import { mapState, mapActions } from "vuex";
+import { mapState, mapActions } from "vuex"
+
 export default {
+  name: "admin-sidebar",
   methods: {
     ...mapActions(["getInvestments"])
   },
@@ -73,54 +77,5 @@ export default {
 </script>
 
 <style scoped>
-a {
-  color: inherit;
-  text-decoration: none;
-}
-.left-side {
-  color: #abc4c6;
-}
-.left-top {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-.left-top-text {
-  line-height: 1.3;
-}
-.left-top-text div {
-  font-size: 16px;
-  font-weight: bold;
-}
-.left-top-text label {
-  font-size: 14px;
-}
-.left-top-icon .far {
-  font-size: 20px;
-}
-.left-top-icon .fa-bell {
-  top: 5rem;
-  right: 1rem;
-}
 
-.left-body .fas {
-  font-size: 18px;
-}
-.list-menu > li {
-  padding-left: 1px;
-  padding-bottom: 10px;
-}
-.left-body .far {
-  font-size: 20px;
-}
-.space {
-  padding-left: 9px;
-}
-.fa-chess-rook {
-  padding-left: 1px;
-}
-.last {
-  display: flex;
-  align-items: center;
-}
 </style>

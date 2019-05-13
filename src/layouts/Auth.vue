@@ -1,6 +1,6 @@
 <template>
 	<main id="auth-layout">
-
+		<router-view />
 	</main>
 </template>
 
