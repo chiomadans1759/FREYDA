@@ -11,53 +11,36 @@ export const router = new Router({
   routes: [
     {
       path: '/',
-      name: 'register-page',
-      component: () => import('@/views/Register/Register.vue')
-    },
-    {
-      path: '/login',
-      name: 'Login-page',
-      component: () => import('@/views/Login/Login.vue')
+      name: 'auth-layout',
+      component: () => import('@/layouts/Auth'),
+      children: [
+        { path: 'login', name: 'login', component: () => import('@/views/Auth/Login') },
+        { path: 'register', name: 'register', component: () => import('@/views/Auth/Register') },
+        { path: 'forgot-password', name: 'forgot-password', component: () => import('@/views/Auth/ForgotPassword') }      ]
     },
     {
       path: '/admin',
-      component: () => import('@/layouts/AdminLayout.vue'),
-      meta: {
-        requiresAuth: true
-      },
-
+      name: 'admin-layout',
+      component: () => import('@/layouts/Admin'),
       children: [
-        {
-          path: '',
-          component: () => import('@/views/Admin.vue')
-        },
-        {
-          path: 'private-equity',
-          name: 'private-equity',
-          component: () => import('@/views/PrivateEquity.vue'),
-        },
-        {
-          path: 'pantheon',
-          name: 'pantheon',
-          component: () => import('./views/Pantheon.vue'),
-        },
+        { path: 'dashboard', name: 'dashboard', component: () => import('@/views/Admin/Dashboard') }
       ]
-    },
+    }
   ]
 });
 
-router.beforeEach((to, from, next) => {
-  const currentUser = localStorage.getItem('freydatoken');
-  const requiresAuth = to.matched.some(record => record.meta.requiresAuth);
-  if (currentUser) {
-    const user = jwt(currentUser, process.env.SECRET_KEY);
-    store.commit('setAuthSuccess', user);
-  }
-  if (requiresAuth && !currentUser) {
-    next('/login');
-  } else if (requiresAuth && currentUser) {
-    next();
-  } else {
-    next();
-  }
-});
+// router.beforeEach((to, from, next) => {
+//   const currentUser = localStorage.getItem('freydatoken');
+//   const requiresAuth = to.matched.some(record => record.meta.requiresAuth);
+//   if (currentUser) {
+//     const user = jwt(currentUser, process.env.SECRET_KEY);
+//     store.commit('setAuthSuccess', user);
+//   }
+//   if (requiresAuth && !currentUser) {
+//     next('/login');
+//   } else if (requiresAuth && currentUser) {
+//     next();
+//   } else {
+//     next();
+//   }
+// });
