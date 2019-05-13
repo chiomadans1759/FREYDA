@@ -22,6 +22,7 @@ export const router = new Router({
       path: '/admin',
       name: 'admin-layout',
       component: () => import('@/layouts/Admin'),
+      meta: requiresAuth,
       children: [
         { path: 'dashboard', name: 'dashboard', component: () => import('@/views/Admin/Dashboard') }
       ]
@@ -29,18 +30,18 @@ export const router = new Router({
   ]
 });
 
-// router.beforeEach((to, from, next) => {
-//   const currentUser = localStorage.getItem('freydatoken');
-//   const requiresAuth = to.matched.some(record => record.meta.requiresAuth);
-//   if (currentUser) {
-//     const user = jwt(currentUser, process.env.SECRET_KEY);
-//     store.commit('setAuthSuccess', user);
-//   }
-//   if (requiresAuth && !currentUser) {
-//     next('/login');
-//   } else if (requiresAuth && currentUser) {
-//     next();
-//   } else {
-//     next();
-//   }
-// });
+router.beforeEach((to, from, next) => {
+  const currentUser = localStorage.getItem('freydatoken');
+  const requiresAuth = to.matched.some(record => record.meta.requiresAuth);
+  if (currentUser) {
+    const user = jwt(currentUser, process.env.SECRET_KEY);
+    store.commit('setAuthSuccess', user);
+  }
+  if (requiresAuth && !currentUser) {
+    next('/login');
+  } else if (requiresAuth && currentUser) {
+    next();
+  } else {
+    next();
+  }
+});
