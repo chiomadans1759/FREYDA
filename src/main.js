@@ -1,6 +1,5 @@
 import Vue from 'vue'
 import Vuelidate from 'vuelidate'
-import VueSweetalert2 from 'vue-sweetalert2'
 import App from './App.vue'
 import {
   router
@@ -14,7 +13,6 @@ window.toastr = require('toastr')
 
 Vue.use(VueToastr2)
 Vue.use(Vuelidate);
-Vue.use(VueSweetalert2);
 
 Vue.prototype.$http = axios;
 const token = localStorage.getItem('freydatoken');
