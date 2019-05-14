@@ -1,61 +1,227 @@
 <template>
-  <main class="admin-sidebar">
-    <header class="top">
-      <div class="left-top-text">
-        <div class="text-white">ABC Capital LLP</div>
-        <label>@John.Smith</label>
-      </div>
-      <div class="left-top-icon mb-3">
-        <i class="far fa-star ml-5"></i>
-        <i class="far fa-bell pl-3"></i>
-      </div>
-    </header>
+  <main class="admin-sidebar py-3">
+    <div class="container">
+      <header class="top">
+        <div class="row mb-4">
+          <div class="col">
+            <h1 class="brand text-center">FREYDA</h1>
+          </div>
 
-    <section class="body mt-3">
-      <p>My coverage</p>
-      <ul class="list-unstyled mt-2 list-menu">
-        <li>
-          <i class="fas fa-chess-rook text-white"></i>
-          <router-link
-            to="/admin/private-equity"
-            class="pl-2 text-white"
-            data-toggle="collapse"
-            href="#collapseExample"
-            role="button"
-            aria-expanded="false"
-            aria-controls="collapseExample"
-          >Private Equity</router-link>
-          <div class="collapse" id="collapseExample">
-            <div class="toggler pt-1" v-for="i in 5" :key="i">
-              <i class="far fa-user pl-4"></i>
-              <span class="pl-2">Richard Brandon</span>
+          <div class="col-auto pt-1 p-0">
+            <a href="">
+              <i class="fa fa-bell pl-3"></i>
+            </a>
+          </div>
+
+          <div class="col-auto pt-1 pb-0 pl-0">
+            <a href="">
+              <i class="fa fa-upload pl-3"></i>
+            </a>
+          </div>
+        </div>
+
+        <div class="user">
+          <h6 class="text-white mb-1">ABC Capital LLP</h6>
+          <label>John Smith</label>
+        </div>
+      </header>
+
+      <section class="body mt-5">
+        <div class="heading mb-2">
+          <div class="row">
+            <div class="col">
+              <h4>My Coverage</h4>
+            </div>
+
+            <div class="col-auto">
+              <router-link to="">
+                <i class="fa fa-plus"></i>
+              </router-link>
             </div>
           </div>
-        </li>
-        <li>
-          <i class="far fa-user"></i>
-          <router-link to="pantheon" class="space" href>Pantheon</router-link>
-        </li>
-        <li>
-          <i class="fas fa-suitcase"></i>
-          <a class="space" href>JPEL Private Equity Limited</a>
-        </li>
-        <li class="last">
-          <i class="far fa-envelope"></i>
-          <a class="space" href>Fund Sleeve A</a>
-        </li>
-      </ul>
-    </section>
+        </div>
+        
+        <div class="coverage pl-2">
+          <ul class="list-unstyled">
+            <li class="list-item">
+              <a class="fund-manager" data-toggle="collapse" href="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+                <i class="fas fa-chess-rook text-white"></i>
+                <label class="pl-1">Private Equity</label>
 
-    <footer class="bottom mt-5">
-      <p>My recent views</p>
-      <ul class="list-unstyled mt-2 list-menu">
-        <li v-for="i in 6" :key="i">
-          <i class="far fa-file"></i>
-          <a class="space" href>XYZ Capital LLP Quater....</a>
-        </li>
-      </ul>
-    </footer>
+                <i class="fa fa-caret-down pl-3"></i>
+              </a>
+
+              <ul class="list-unstyled">
+                <div class="collapse pl-3" id="collapseExample">
+                  <li class="funds">
+                    <a href="">
+                      <i class="fa fa-suitcase pr-1"></i>
+                      Pantheon
+                    </a>
+                  </li>
+                  <li class="funds">
+                    <a href="">
+                      <i class="fa fa-suitcase pr-1"></i>
+                      JPEL Private Equity Limited
+                    </a>
+                  </li>
+                  <li class="funds">
+                    <a href="">
+                      <i class="fa fa-suitcase pr-1"></i>
+                      Fund Sleeve A
+                    </a>
+                  </li>
+                </div>
+              </ul>
+            </li>
+
+            <li class="list-item">
+              <a class="fund-manager" data-toggle="collapse" href="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+                <i class="fas fa-chess-rook text-white"></i>
+                <label class="pl-1">Private Equity</label>
+
+                <i class="fa fa-caret-down pl-3"></i>
+              </a>
+
+              <ul class="list-unstyled">
+                <div class="collapse pl-3" id="collapseExample">
+                  <li class="funds">
+                    <a href="">
+                      <i class="fa fa-suitcase pr-1"></i>
+                      Pantheon
+                    </a>
+                  </li>
+                  <li class="funds">
+                    <a href="">
+                      <i class="fa fa-suitcase pr-1"></i>
+                      JPEL Private Equity Limited
+                    </a>
+                  </li>
+                  <li class="funds">
+                    <a href="">
+                      <i class="fa fa-suitcase pr-1"></i>
+                      Fund Sleeve A
+                    </a>
+                  </li>
+                </div>
+              </ul>
+            </li>
+          </ul>
+        </div>
+
+        <div class="heading mb-2">
+          <div class="row">
+            <div class="col">
+              <h4>My Watchlist</h4>
+            </div>
+
+            <div class="col-auto">
+              <router-link to="">
+                <i class="fa fa-plus"></i>
+              </router-link>
+            </div>
+          </div>
+        </div>
+
+        <div class="coverage pl-2">
+          <ul class="list-unstyled">
+            <li class="list-item">
+              <a class="fund-manager" data-toggle="collapse" href="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+                <i class="fas fa-chess-rook text-white"></i>
+                <label class="pl-1">Private Equity</label>
+
+                <i class="fa fa-caret-down pl-3"></i>
+              </a>
+
+              <ul class="list-unstyled">
+                <div class="collapse pl-3" id="collapseExample">
+                  <li class="funds">
+                    <a href="">
+                      <i class="fa fa-suitcase pr-1"></i>
+                      Pantheon
+                    </a>
+                  </li>
+                  <li class="funds">
+                    <a href="">
+                      <i class="fa fa-suitcase pr-1"></i>
+                      JPEL Private Equity Limited
+                    </a>
+                  </li>
+                  <li class="funds">
+                    <a href="">
+                      <i class="fa fa-suitcase pr-1"></i>
+                      Fund Sleeve A
+                    </a>
+                  </li>
+                </div>
+              </ul>
+            </li>
+
+            <li class="list-item">
+              <a class="fund-manager" data-toggle="collapse" href="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+                <i class="fas fa-chess-rook text-white"></i>
+                <label class="pl-1">Private Equity</label>
+
+                <i class="fa fa-caret-down pl-3"></i>
+              </a>
+
+              <ul class="list-unstyled">
+                <div class="collapse pl-3" id="collapseExample">
+                  <li class="funds">
+                    <a href="">
+                      <i class="fa fa-suitcase pr-1"></i>
+                      Pantheon
+                    </a>
+                  </li>
+                  <li class="funds">
+                    <a href="">
+                      <i class="fa fa-suitcase pr-1"></i>
+                      JPEL Private Equity Limited
+                    </a>
+                  </li>
+                  <li class="funds">
+                    <a href="">
+                      <i class="fa fa-suitcase pr-1"></i>
+                      Fund Sleeve A
+                    </a>
+                  </li>
+                </div>
+              </ul>
+            </li>
+          </ul>
+        </div>
+      </section>
+
+      <footer class="bottom mt-5">
+        <div class="collapse" id="collapseFooter">
+          <ul class="list-unstyled">
+            <li class="funds">
+              <a href="">
+                <i class="fa fa-suitcase pr-1"></i>
+                Pantheon
+              </a>
+            </li>
+            <li class="funds">
+              <a href="">
+                <i class="fa fa-suitcase pr-1"></i>
+                JPEL Private Equity Limited
+              </a>
+            </li>
+            <li class="funds">
+              <a href="">
+                <i class="fa fa-suitcase pr-1"></i>
+                Fund Sleeve A
+              </a>
+            </li>
+          </ul>
+        </div>
+
+        <a class="views-anchor" data-toggle="collapse" href="#collapseFooter">
+          <i class="fas fa-chess-rook text-white"></i>
+          <label class="pl-1">My recent views</label>
+        </a>
+      </footer>
+    </div>
   </main>
 </template>
 
@@ -77,5 +243,100 @@ export default {
 </script>
 
 <style scoped>
+.admin-sidebar header
+.brand {
+  padding: 3px;
+  background-color: rgba(255, 255, 255, 0.2);
+  color: #ffffff;
+  font-size: 16px;
+  border-radius: 50px;
+}
 
+.admin-sidebar header
+i {
+  color: rgba(255, 255, 255, 0.5);
+  font-size: 18px;
+}
+
+.admin-sidebar header 
+.col-auto a:hover i {
+  color: #ffffff;
+}
+
+.admin-sidebar header
+.user label {
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.admin-sidebar .body 
+.heading,
+.admin-sidebar .body 
+.heading a {
+  color: rgba(255, 255, 255, 0.7) !important;
+}
+
+.admin-sidebar .body 
+.heading h4 {
+  font-size: 16px;
+  margin-top: 1px;
+}
+
+.admin-sidebar .body 
+ul li {
+  font-size: 15px;
+}
+
+.admin-sidebar .body
+.fund-manager {
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.7);
+  margin-bottom: 0rem;
+}
+
+.admin-sidebar .body
+.fund-manager:hover {
+  color: rgba(255, 255, 255, 1.0);
+  text-decoration: none;
+}
+
+.admin-sidebar .body
+li.funds {
+  font-size: 13px;
+}
+
+.admin-sidebar .body
+li.funds a {
+  color: rgba(255, 255, 255, 0.8) !important;
+}
+
+.admin-sidebar .body
+li.funds a:hover {
+  color: rgba(255, 255, 255, 1.0) !important;
+  text-decoration: none;
+}
+
+.admin-sidebar footer {
+  position: absolute;
+  bottom: 1rem;
+}
+
+.admin-sidebar footer 
+.views-anchor {
+  color: #ffffff;
+  font-weight: bold;
+  font-size: 14px;
+}
+
+.admin-sidebar footer 
+ul li a {
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 13px;
+}
+
+.admin-sidebar footer 
+ul li a:hover {
+  color: rgba(255, 255, 255, 1.0);
+  text-decoration: none;
+}
 </style>

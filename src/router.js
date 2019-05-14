@@ -22,9 +22,9 @@ export const router = new Router({
       path: '/admin',
       name: 'admin-layout',
       component: () => import('@/layouts/Admin'),
-      meta: {
-        requiresAuth: true
-      },
+      // meta: {
+      //   requiresAuth: true
+      // },
       children: [
         { path: 'dashboard', name: 'dashboard', component: () => import('@/views/Admin/Dashboard') }
       ]

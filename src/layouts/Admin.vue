@@ -3,17 +3,22 @@
     <admin-sidebar class="sidebar" />
 
     <div class="main-content">
-      <router-view />
+      <admin-header />
+      <div style="padding-top: 4rem;">
+        <router-view />
+      </div>
     </div>
   </main>
 </template>
 
 <script>
 import AdminSidebar from "@/components/AdminSidebar"
+import AdminHeader from "@/components/AdminHeader"
 
 export default {
   components: {
-    AdminSidebar
+    AdminSidebar,
+    AdminHeader
   }
 }
 </script>
@@ -30,12 +35,14 @@ export default {
   width: 18%;
   height: 100vh;
   background-color: #578a8d;
+  position: fixed;
 }
 
 .admin-layout .main-content {
   float: right;
   width: 82%;
   height: auto;
+  z-index: 1000; 
 }
 </style>
 
