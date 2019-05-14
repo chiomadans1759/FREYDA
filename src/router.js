@@ -10,6 +10,7 @@ export const router = new Router({
   base: process.env.BASE_URL,
   routes: [{
       path: '/',
+      redirect: "/register",
       name: 'auth-layout',
       component: () => import('@/layouts/Auth'),
       children: [{

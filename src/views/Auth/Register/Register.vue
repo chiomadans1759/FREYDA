@@ -229,7 +229,7 @@ export default {
       } = this.user;
       this.register(this.user)
         .then(() => {
-          this.$router.push("/admin");
+          this.$router.push("/admin/dashboard");
           this.$toastr.success(
             "Success",
             `Welcome ${this.auth.user.firstName}`
