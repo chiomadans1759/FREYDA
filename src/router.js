@@ -16,7 +16,9 @@ export const router = new Router({
       children: [
         { path: 'login', name: 'login', component: () => import('@/views/Auth/Login') },
         { path: 'register', name: 'register', component: () => import('@/views/Auth/Register') },
-        { path: 'forgot-password', name: 'forgot-password', component: () => import('@/views/Auth/ForgotPassword') }      ]
+        { path: 'forgot-password', name: 'forgot-password', component: () => import('@/views/Auth/ForgotPassword') },
+        { path: 'reset-password', name: 'reset-password', component: () => import('@/views/Auth/ResetPassword') },
+      ]
     },
     {
       path: '/admin',
