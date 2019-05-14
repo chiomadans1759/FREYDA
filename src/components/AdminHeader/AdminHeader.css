@@ -1,0 +1,32 @@
+.admin-header .card {
+	border-radius: 0px;
+	height: 4rem;
+	position: fixed;
+  width: 100%;
+	z-index: 1000;
+}
+
+.input-group, .input-group-prepend {
+	border: 0px;
+}
+
+.admin-header .input-group-text {
+	border-top-left-radius: 50px;
+	border-bottom-left-radius: 50px;
+	background-color: rgba(87, 138, 141, 0.2);
+	border: 0px;
+	color: rgba(87, 138, 141, 0.8);
+	padding-right: 0px;
+}
+
+.admin-header .form-control {
+	border-top-right-radius: 50px;
+	border-bottom-right-radius: 50px;
+	background-color: rgba(87, 138, 141, 0.2);
+	border: 0px;
+	border-left: 1px solid rgba(87, 138, 141, 0);
+}
+
+.admin-header .form-control::placeholder {
+	color: rgba(87, 138, 141, 0.8);
+}
