@@ -1,0 +1,96 @@
+.admin-sidebar header
+.brand {
+  padding: 3px;
+  background-color: rgba(255, 255, 255, 0.2);
+  color: #ffffff;
+  font-size: 16px;
+  border-radius: 50px;
+}
+
+.admin-sidebar header
+i {
+  color: rgba(255, 255, 255, 0.5);
+  font-size: 18px;
+}
+
+.admin-sidebar header 
+.col-auto a:hover i {
+  color: #ffffff;
+}
+
+.admin-sidebar header
+.user label {
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.admin-sidebar .body 
+.heading,
+.admin-sidebar .body 
+.heading a {
+  color: rgba(255, 255, 255, 0.7) !important;
+}
+
+.admin-sidebar .body 
+.heading h4 {
+  font-size: 16px;
+  margin-top: 1px;
+}
+
+.admin-sidebar .body 
+ul li {
+  font-size: 15px;
+}
+
+.admin-sidebar .body
+.fund-manager {
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.7);
+  margin-bottom: 0rem;
+}
+
+.admin-sidebar .body
+.fund-manager:hover {
+  color: rgba(255, 255, 255, 1.0);
+  text-decoration: none;
+}
+
+.admin-sidebar .body
+li.funds {
+  font-size: 13px;
+}
+
+.admin-sidebar .body
+li.funds a {
+  color: rgba(255, 255, 255, 0.8) !important;
+}
+
+.admin-sidebar .body
+li.funds a:hover {
+  color: rgba(255, 255, 255, 1.0) !important;
+  text-decoration: none;
+}
+
+.admin-sidebar footer {
+  position: absolute;
+  bottom: 1rem;
+}
+
+.admin-sidebar footer 
+.views-anchor {
+  color: #ffffff;
+  font-weight: bold;
+  font-size: 14px;
+}
+
+.admin-sidebar footer 
+ul li a {
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 13px;
+}
+
+.admin-sidebar footer 
+ul li a:hover {
+  color: rgba(255, 255, 255, 1.0);
+  text-decoration: none;
+}

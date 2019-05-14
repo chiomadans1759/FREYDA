@@ -26,7 +26,7 @@ export const router = new Router({
       //   requiresAuth: true
       // },
       children: [
-        { path: 'dashboard', name: 'dashboard', component: () => import('@/views/Admin/Dashboard') }
+        { path: 'dashboard', name: 'dashboard', component: () => import('@/views/Admin/Dashboard/Dashboard') }
       ]
     }
   ]

@@ -186,7 +186,7 @@
 				<div class="col">
 					<div class="card border-0 rounded-0">
 						<div class="card-body">
-							<line-chart />
+							<bar-chart />
 						</div>
 					</div>
 				</div>
@@ -197,42 +197,18 @@
 
 <script>
 import DoughnutChart from '@/components/DoughnutChart'
-import LineChart from '@/components/LineChart'
+import BarChart from '@/components/BarChart'
 
 export default {
 	name: "dashboard",
 	components: { 
 		DoughnutChart,
-		LineChart 
+		BarChart 
 	}
 }
 </script>
 
 <style scoped>
-.dashboard .stat-cards 
-.card  {
-	border-radius: 0px !important;
-	-webkit-box-shadow: 2px 2px 5px 0px rgba(214,211,214,1);
--moz-box-shadow: 2px 2px 5px 0px rgba(214,211,214,1);
-box-shadow: 2px 2px 5px 0px rgba(214,211,214,1);
-}
-
-.dashboard .stat-cards 
-.card .card-header {
-	background-color: #ffffff !important;
-	border-color: rgba(87, 138, 141, 0.2);
-}
-
-.dashboard .stat-cards 
-.card .card-header-title {
-	font-size: 11px !important;
-	font-weight: bold;
-	color: #666666;
-}
-
-.dashboard .stat-cards 
-.card .card-body{
-	color: #578a8d;
-}
+@import "./Dashboard.css";
 </style>
 
