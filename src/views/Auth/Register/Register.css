@@ -1,0 +1,89 @@
+#register .register-text {
+    font-size: 30px;
+    font-weight: bolder;
+    color: #558c90;
+    margin: 20px 0;
+}
+
+#register .first-name,
+.last-name,
+.username,
+.company,
+.password,
+.email,
+.confirm-password {
+    position: relative;
+}
+
+#register .register-container {
+    position: relative;
+    margin: 0 50px;
+}
+
+#register input {
+    font-size: 15px;
+    height: 50px;
+    outline: none !important;
+    box-shadow: none !important;
+    padding: 10px 0px 0 25px;
+}
+
+#register .form-control {
+    border: 1px solid #c9c9c9;
+    border-radius: 40px;
+    color: black;
+}
+
+.floating-label {
+    position: absolute;
+    pointer-events: none;
+    left: 25px;
+    top: 25px;
+    transition: 0.2s ease all;
+    font-size: 11px;
+    color: #000000;
+    opacity: 0.31;
+}
+
+#register input:focus~.floating-label,
+#register input:not(:focus):valid~.floating-label {
+    top: 4px;
+    bottom: 10px;
+    left: 25px;
+    font-size: 10px;
+    opacity: 0.31;
+}
+
+.inputText {
+    font-size: 14px !important;
+    height: 35px;
+    width: 300px;
+}
+
+#register .register-layout {
+    margin-top: 50px;
+}
+
+#register .submit-btn {
+    background-color: #558c90;
+    color: white;
+    border-radius: 50px;
+    padding: 11px 0;
+    font-size: 18px;
+}
+
+#register .agreement {
+    font-size: 11px;
+    color: #a6a6a6;
+}
+
+#register .sign-up-prompt {
+    font-size: 15px;
+    color: #707070;
+    opacity: 0.85;
+}
+
+#register a {
+    color: #558c90 !important;
+    text-decoration: none;
+}

@@ -2,7 +2,7 @@
   <main id="register">
     <div class="row">
       <div class="col-md-4 mx-auto">
-        <div class="shadow bg-white card register-layout border-0">
+        <div class="shadow bg-white card register-layout border-0 mb-5">
           <form class="auth-form register-container" @submit.prevent="handleSubmit">
             <div class="text-center register-text">FREYDA</div>
             <div class="form-group first-name">
@@ -18,7 +18,7 @@
               >
               <div
                 v-if="submitted && !$v.user.firstName.required"
-                class="invalid-feedback"
+                class="invalid-feedback pl-4"
               >First Name is required</div>
               <span class="floating-label">First Name</span>
             </div>
@@ -35,7 +35,7 @@
               >
               <div
                 v-if="submittedinputText  && !$v.user.lastName.required"
-                class="invalid-feedback"
+                class="invalid-feedback pl-4"
               >Last Name is required</div>
               <span class="floating-label">Last Name</span>
             </div>
@@ -53,9 +53,12 @@
               >
               <div
                 v-if="submitted && !$v.user.username.required"
-                class="invalid-feedback"
+                class="invalid-feedback pl-4"
               >User Name is required</div>
-              <div v-if="submitted && !$v.user.username.validateUserName" class="invalid-feedback">
+              <div
+                v-if="submitted && !$v.user.username.validateUserName"
+                class="invalid-feedback pl-4"
+              >
                 Username is invalid:
                 <br>1. A username can only have numbers at the end, and can have only _ as the allowed special character only after the first two letters
                 <br>2. A username should at least be 2 characters long
@@ -73,7 +76,7 @@
                 class="inputText form-control"
                 :class="{ 'is-invalid': submitted && $v.user.companyName.$error }"
               >
-              <div v-if="submitted && $v.user.companyName.$error" class="invalid-feedback">
+              <div v-if="submitted && $v.user.companyName.$error" class="invalid-feedback pl-4">
                 <span v-if="!$v.user.companyName.required">company Name is required</span>
               </div>
               <span class="floating-label">Company Name</span>
@@ -89,7 +92,7 @@
                 class="inputText form-control"
                 :class="{ 'is-invalid': submitted && $v.user.email.$error }"
               >
-              <div v-if="submitted && $v.user.email.$error" class="invalid-feedback">
+              <div v-if="submitted && $v.user.email.$error" class="invalid-feedback pl-4">
                 <span v-if="!$v.user.email.required">Email is required</span>
                 <span v-if="!$v.user.email.email">Email is invalid</span>
               </div>
@@ -107,10 +110,10 @@
                 class="inputText form-control"
                 :class="{ 'is-invalid': submitted && $v.user.password.$error }"
               >
-              <div v-if="submitted && $v.user.password.$error" class="invalid-feedback">
+              <div v-if="submitted && $v.user.password.$error" class="invalid-feedback pl-4">
                 <span v-if="!$v.user.password.required">Password is required</span>
               </div>
-              <div v-if="submitted && $v.user.password.$error" class="invalid-feedback">
+              <div v-if="submitted && $v.user.password.$error" class="invalid-feedback pl-4">
                 <span v-if="!$v.user.password.validatePassword">
                   The password failed to match the following rules:
                   <br>1. It must contain ONLY lower case, upper case or numerics
@@ -130,7 +133,7 @@
                 class="inputText form-control"
                 :class="{ 'is-invalid': submitted && $v.user.confirmPassword.$error }"
               >
-              <div v-if="submitted && $v.user.confirmPassword.$error" class="invalid-feedback">
+              <div v-if="submitted && $v.user.confirmPassword.$error" class="invalid-feedback pl-4">
                 <span v-if="!$v.user.confirmPassword.required">Confirm Password is required</span>
                 <span v-else-if="!$v.user.confirmPassword.sameAsPassword">Passwords does not match</span>
               </div>
@@ -140,9 +143,18 @@
             <div class="d-flex justify-content-center">
               <button
                 type="submit"
-                class="btn btn-primary submit-btn"
+                class="btn btn-block submit-btn"
                 :disabled="this.auth.isFetching"
               >{{ this.auth.isFetching ? 'Submitting...' : 'Submit' }}</button>
+            </div>
+            <div class="agreement px-2 pt-3">
+              By Signing Up, you are indicating that you have read and agreed to the
+              <router-link to="/terms" class="links">Terms of Use</router-link>&nbsp; and
+              <router-link to="/privacy">Privacy Policy.</router-link>
+            </div>
+            <div class="sign-up-prompt text-center pt-5 pb-3">
+              Already have an account?
+              <router-link to="/login">Sign In</router-link>
             </div>
           </form>
         </div>
@@ -235,63 +247,7 @@ export default {
 };
 </script>
 
-<style>
-#register .register-text {
-  font-size: 30px;
-  font-weight: bolder;
-  color: #558c90;
-  margin: 20px 0;
-}
-#register .first-name,
-.last-name,
-.username,
-.company,
-.password,
-.email,
-.confirm-password {
-  position: relative;
-}
-#register .register-container {
-  position: relative;
-  margin: 0 50px;
-}
-#register input {
-  font-size: 15px;
-  height: 50px;
-  outline: none !important;
-  box-shadow: none !important;
-  padding: 10px 0px 0 25px;
-}
-#register .form-control {
-  border: 1px solid #c9c9c9;
-  border-radius: 40px;
-  color: black;
-}
-.floating-label {
-  position: absolute;
-  pointer-events: none;
-  left: 25px;
-  top: 25px;
-  transition: 0.2s ease all;
-  font-size: 11px;
-  color: #000000;
-  opacity: 0.31;
-}
-
-#register input:focus ~ .floating-label,
-#register input:not(:focus):valid ~ .floating-label {
-  top: 4px;
-  bottom: 10px;
-  left: 25px;
-  font-size: 10px;
-  opacity: 0.31;
-}
-.inputText {
-  font-size: 14px !important;
-  height: 35px;
-  width: 300px;
-}
-#register .register-layout {
-  margin-top: 50px;
-}
+<style <style scoped>
+@import "./Register.css";
 </style>
+
