@@ -98,7 +98,7 @@ export default {
       let { identifier, password } = this.user;
       this.login(this.user)
         .then(() => {
-          this.$router.push("/Admin/Dashboard'");
+          this.$router.push("/admin");
           this.$toastr.success("Success", "Login Successful");
         })
         .catch(error => {
