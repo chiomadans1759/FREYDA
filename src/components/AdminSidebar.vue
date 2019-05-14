@@ -44,7 +44,7 @@
         <div class="coverage pl-2">
           <ul class="list-unstyled">
             <li class="list-item">
-              <a class="fund-manager" data-toggle="collapse" href="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+              <a class="fund-manager" data-toggle="collapse" href="#collapsePrivateEquity">
                 <i class="fas fa-chess-rook text-white"></i>
                 <label class="pl-1">Private Equity</label>
 
@@ -52,7 +52,7 @@
               </a>
 
               <ul class="list-unstyled">
-                <div class="collapse pl-3" id="collapseExample">
+                <div class="collapse pl-3" id="collapsePrivateEquity">
                   <li class="funds">
                     <a href="">
                       <i class="fa fa-suitcase pr-1"></i>
@@ -76,15 +76,15 @@
             </li>
 
             <li class="list-item">
-              <a class="fund-manager" data-toggle="collapse" href="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+              <a class="fund-manager" data-toggle="collapse" href="#collapseAnotherEquity">
                 <i class="fas fa-chess-rook text-white"></i>
-                <label class="pl-1">Private Equity</label>
+                <label class="pl-1">Another Equity</label>
 
                 <i class="fa fa-caret-down pl-3"></i>
               </a>
 
               <ul class="list-unstyled">
-                <div class="collapse pl-3" id="collapseExample">
+                <div class="collapse pl-3" id="collapseAnotherEquity">
                   <li class="funds">
                     <a href="">
                       <i class="fa fa-suitcase pr-1"></i>
