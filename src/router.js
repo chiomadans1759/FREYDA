@@ -27,7 +27,8 @@ export const router = new Router({
       // },
       children: [
         { path: 'dashboard', name: 'dashboard', component: () => import('@/views/Admin/Dashboard/Dashboard') },
-        { path: 'new-coverage', name: 'new-coverage', component: () => import('@/views/Admin/NewCoverage/NewCoverage') }
+        { path: 'new-coverage', name: 'new-coverage', component: () => import('@/views/Admin/NewCoverage/NewCoverage') },
+        { path: 'new-watchlist', name: 'new-watchlist', component: () => import('@/views/Admin/NewWatchlist/NewWatchlist') }
       ]
     }
   ]
