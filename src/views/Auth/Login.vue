@@ -109,7 +109,7 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
 #login .login-layout {
   border-radius: 10px;
   margin-top: 100px;

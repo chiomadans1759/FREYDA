@@ -2,13 +2,15 @@
   <main id="register">
     <div class="row">
       <div class="col-md-4 mx-auto">
-        <div class="shadow bg-white card login-layout border-0">
+        <div class="shadow bg-white card register-layout border-0">
           <form class="auth-form register-container" @submit.prevent="handleSubmit">
             <div class="text-center register-text">FREYDA</div>
             <div class="form-group first-name">
               <input
+                required
                 type="text"
                 v-model="user.firstName"
+                autocomplete="new-password"
                 id="firstName"
                 name="firstName"
                 class="inputText form-control"
@@ -23,6 +25,7 @@
 
             <div class="form-group last-name">
               <input
+                required
                 type="text"
                 v-model="user.lastName"
                 id="lastName"
@@ -39,8 +42,10 @@
 
             <div class="form-group username">
               <input
+                required
                 type="text"
                 v-model="user.username"
+                autocomplete="new-password"
                 id="username"
                 name="username"
                 class="inputText form-control"
@@ -60,6 +65,7 @@
 
             <div class="form-group company">
               <input
+                required
                 type="text"
                 v-model="user.companyName"
                 id="companyName"
@@ -75,6 +81,7 @@
 
             <div class="form-group email">
               <input
+                required
                 type="email"
                 v-model="user.email"
                 id="email"
@@ -91,8 +98,10 @@
 
             <div class="form-group password">
               <input
+                required
                 type="password"
                 v-model="user.password"
+                autocomplete="new-password"
                 id="password"
                 name="password"
                 class="inputText form-control"
@@ -113,6 +122,7 @@
 
             <div class="form-group confirm-password">
               <input
+                required
                 type="password"
                 v-model="user.confirmPassword"
                 id="confirmPassword"
@@ -225,12 +235,12 @@ export default {
 };
 </script>
 
-<style scoped>
+<style>
 #register .register-text {
   font-size: 30px;
   font-weight: bolder;
   color: #558c90;
-  margin: 30px 0;
+  margin: 20px 0;
 }
 #register .first-name,
 .last-name,
@@ -279,5 +289,9 @@ export default {
 .inputText {
   font-size: 14px !important;
   height: 35px;
+  width: 300px;
+}
+#register .register-layout {
+  margin-top: 50px;
 }
 </style>
