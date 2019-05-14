@@ -19,14 +19,15 @@ export const router = new Router({
         { path: 'forgot-password', name: 'forgot-password', component: () => import('@/views/Auth/ForgotPassword') }]
     },
     {
-      path: '/admin',
+      path: '/:username',
       name: 'admin-layout',
       component: () => import('@/layouts/Admin'),
       // meta: {
       //   requiresAuth: true
       // },
       children: [
-        { path: 'dashboard', name: 'dashboard', component: () => import('@/views/Admin/Dashboard/Dashboard') }
+        { path: 'dashboard', name: 'dashboard', component: () => import('@/views/Admin/Dashboard/Dashboard') },
+        { path: 'new-coverage', name: 'new-coverage', component: () => import('@/views/Admin/NewCoverage/NewCoverage') }
       ]
     }
   ]

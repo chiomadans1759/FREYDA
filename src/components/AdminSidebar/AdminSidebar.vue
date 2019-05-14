@@ -34,7 +34,7 @@
             </div>
 
             <div class="col-auto">
-              <router-link to="">
+              <router-link to="/admin/new-coverage">
                 <i class="fa fa-plus"></i>
               </router-link>
             </div>
