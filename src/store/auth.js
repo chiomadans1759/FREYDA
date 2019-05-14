@@ -48,7 +48,6 @@ export default {
       commit('startAuthRequest');
       try {
         const response = await http.post('users/login', data);
-        console.log(response)
         const token = response.data.data.accessToken;
         const user = response.data.data.user;
         localStorage.setItem('freydatoken', token);
