@@ -21,7 +21,10 @@ export default {
     },
   },
   actions: {
-    async register({ state, commit }, user) {
+    async register({
+      state,
+      commit
+    }, user) {
       const data = user;
       commit('startAuthRequest');
       try {
@@ -37,11 +40,15 @@ export default {
         throw new Error(error.response.data.error.message);
       }
     },
-    async login({ state, commit }, user) {
+    async login({
+      state,
+      commit
+    }, user) {
       const data = user;
       commit('startAuthRequest');
       try {
         const response = await http.post('users/login', data);
+        console.log(response)
         const token = response.data.data.accessToken;
         const user = response.data.data.user;
         localStorage.setItem('freydatoken', token);

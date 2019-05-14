@@ -2,10 +2,17 @@ import Vue from 'vue'
 import Vuelidate from 'vuelidate'
 import VueSweetalert2 from 'vue-sweetalert2'
 import App from './App.vue'
-import { router } from './router'
+import {
+  router
+} from './router'
 import store from './store'
 import axios from 'axios'
+import VueToastr2 from 'vue-toastr-2'
+import 'vue-toastr-2/dist/vue-toastr-2.min.css'
 
+window.toastr = require('toastr')
+
+Vue.use(VueToastr2)
 Vue.use(Vuelidate);
 Vue.use(VueSweetalert2);
 
