@@ -1,5 +1,5 @@
 <template>
-	<main class="py-4" id="new-coverage">
+	<main class="py-4" id="new-watchlist">
 		<div class="container">
 			<div class="card rounded-0">
 				<div class="card-header bg-white">
