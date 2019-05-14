@@ -21,7 +21,10 @@ export default {
     },
   },
   actions: {
-    async register({ state, commit }, user) {
+    async register({
+      state,
+      commit
+    }, user) {
       const data = user;
       commit('startAuthRequest');
       try {
@@ -37,7 +40,10 @@ export default {
         throw new Error(error.response.data.error.message);
       }
     },
-    async login({ state, commit }, user) {
+    async login({
+      state,
+      commit
+    }, user) {
       const data = user;
       commit('startAuthRequest');
       try {
