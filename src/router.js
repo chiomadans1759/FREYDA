@@ -11,26 +11,29 @@ export const router = new Router({
   routes: [
     {
       path: '/',
-      name: 'auth-layout',
       component: () => import('@/layouts/Auth'),
       children: [
-
-        { path: '', name: 'register', component: () => import('@/views/Auth/Register/Register') },
-        { path: 'login', name: 'login', component: () => import('@/views/Auth/Login/Login') },
+        { path: '', name: 'register', component: () => import('@/views/Auth/Register') },
+        { path: 'login', name: 'login', component: () => import('@/views/Auth/Login') },
         { path: 'forgot-password', name: 'forgot-password', component: () => import('@/views/Auth/ForgotPassword') },
         { path: 'reset-password', name: 'reset-password', component: () => import('@/views/Auth/ResetPassword') },
       ]
     },
     {
-      path: '/admin',
-      name: 'admin-layout',
+      path: '/:username',
       component: () => import('@/layouts/Admin'),
       meta: {
         requiresAuth: true
       },
       children: [
-        { path: 'dashboard', name: 'dashboard', component: () => import('@/views/Admin/Dashboard/Dashboard') }
+        { path: 'dashboard', name: 'dashboard', component: () => import('@/views/Admin/Dashboard') },
+        { path: 'new-coverage', name: 'new-coverage', component: () => import('@/views/Admin/NewCoverage') },
+        { path: 'new-watchlist', name: 'new-watchlist', component: () => import('@/views/Admin/NewWatchlist') }
       ]
+    },
+    { 
+      path: '*', 
+      component:() => import('@/views/Auth/Login')
     }
   ]
 });
@@ -43,7 +46,7 @@ router.beforeEach((to, from, next) => {
     store.commit('setAuthSuccess', user);
   }
   if (requiresAuth && !currentUser) {
-    next('/login');
+    next('/');
   } else if (requiresAuth && currentUser) {
     next();
   } else {
