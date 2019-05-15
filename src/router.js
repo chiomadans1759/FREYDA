@@ -14,8 +14,9 @@ export const router = new Router({
       name: 'auth-layout',
       component: () => import('@/layouts/Auth'),
       children: [
+
+        { path: '', name: 'register', component: () => import('@/views/Auth/Register/Register') },
         { path: 'login', name: 'login', component: () => import('@/views/Auth/Login/Login') },
-        { path: 'register', name: 'register', component: () => import('@/views/Auth/Register/Register') },
         { path: 'forgot-password', name: 'forgot-password', component: () => import('@/views/Auth/ForgotPassword') },
         { path: 'reset-password', name: 'reset-password', component: () => import('@/views/Auth/ResetPassword') },
       ]
