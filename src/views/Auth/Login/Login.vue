@@ -55,7 +55,7 @@
             </div>
             <div class="sign-up-prompt text-center pb-2">
               Don't have an account?
-              <router-link to="/register">Sign-Up</router-link>
+              <router-link to="/">Sign-Up</router-link>
             </div>
           </form>
         </div>
