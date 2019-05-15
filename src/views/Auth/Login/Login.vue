@@ -98,8 +98,11 @@ export default {
       let { identifier, password } = this.user;
       this.login(this.user)
         .then(() => {
-          this.$router.push("/Admin/Dashboard'");
-          this.$toastr.success("Success", "Login Successful");
+          this.$router.push("/admin/dashboard");
+          this.$toastr.success(
+            "Success",
+            `Welcome ${this.auth.user.firstName}`
+          );
         })
         .catch(error => {
           this.$toastr.error(error.message);
