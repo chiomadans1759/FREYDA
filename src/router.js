@@ -8,15 +8,27 @@ Vue.use(Router)
 export const router = new Router({
   mode: 'history',
   base: process.env.BASE_URL,
-  routes: [
-    {
+  routes: [{
       path: '/',
+      redirect: "/register",
       name: 'auth-layout',
       component: () => import('@/layouts/Auth'),
-      children: [
-        { path: 'login', name: 'login', component: () => import('@/views/Auth/Login/Login') },
-        { path: 'register', name: 'register', component: () => import('@/views/Auth/Register') },
-        { path: 'forgot-password', name: 'forgot-password', component: () => import('@/views/Auth/ForgotPassword') }]
+      children: [{
+          path: 'login',
+          name: 'login',
+          component: () => import('@/views/Auth/Login/Login')
+        },
+        {
+          path: 'register',
+          name: 'register',
+          component: () => import('@/views/Auth/Register/Register')
+        },
+        {
+          path: 'forgot-password',
+          name: 'forgot-password',
+          component: () => import('@/views/Auth/ForgotPassword')
+        }
+      ]
     },
     {
       path: '/admin',
@@ -25,9 +37,11 @@ export const router = new Router({
       // meta: {
       //   requiresAuth: true
       // },
-      children: [
-        { path: 'dashboard', name: 'dashboard', component: () => import('@/views/Admin/Dashboard/Dashboard') }
-      ]
+      children: [{
+        path: 'dashboard',
+        name: 'dashboard',
+        component: () => import('@/views/Admin/Dashboard/Dashboard')
+      }]
     }
   ]
 });
