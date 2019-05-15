@@ -18,7 +18,7 @@
               >
               <div
                 v-if="submitted && !$v.user.firstName.required"
-                class="invalid-feedback pl-4"
+                class="invalid-feedback pl-4 form-control"
               >First Name is required</div>
               <span class="floating-label">First Name</span>
             </div>
