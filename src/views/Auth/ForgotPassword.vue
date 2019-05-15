@@ -1,7 +1,7 @@
 <template>
   <div id="forgot-password" class="row justify-content-center align-items-center">
     <div class="bg-white col-md-4 col-sm-7 col-10 py-3 p-0">
-      <div class="row justify-content-center flex-column align-items-center px-5">
+      <div class="row justify-content-center flex-column align-items-center px-5 mx-2">
         <div class="p-3 lock-icon d-flex justify-content-center align-items-center mb-3"><i class="fas fa-unlock-alt"></i></div>
         <h1>Trouble Signing In?</h1>
         <p class="text-center">Enter your email and we'll send you a link to get back your account</p>
@@ -20,7 +20,7 @@
           class="form-control mt-4">Send Password Reset Link
         </button>
       </div>
-      <Divider class="my-4 px-2 mx-4"/>
+      <Divider class="my-4 px-2 mx-5"/>
       <div class="text-center">
         <router-link class="new-account" to="/">Create New Account</router-link>
         <hr>
@@ -80,16 +80,16 @@ export default {
 }
 #forgot-password h1 {
   color:rgba(0, 0, 0, .9);
-  font-size:18px;
+  font-size:20px;
   font-weight:bold;
 }
 #forgot-password .new-account {
   color:rgba(0, 0, 0, .9);
-  font-size:14px;
+  font-size:16px;
   font-weight:bold;
 }
 #forgot-password p {
-  font-size:13px;
+  font-size:14px;
 }
 #forgot-password input, button {
   font-size: 15px;
