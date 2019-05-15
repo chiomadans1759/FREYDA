@@ -1,6 +1,6 @@
 <template>
   <div id="forgot-password" class="row justify-content-center align-items-center">
-    <div class="bg-white col-md-3 col-sm-7 col-10 py-3 p-0">
+    <div class="bg-white col-md-4 col-sm-7 col-10 py-3 p-0">
       <div class="row justify-content-center flex-column align-items-center px-5">
         <div class="p-3 lock-icon d-flex justify-content-center align-items-center mb-3"><i class="fas fa-unlock-alt"></i></div>
         <h1>Trouble Signing In?</h1>
@@ -17,13 +17,13 @@
         <button
           :disabled="!emailIsValid"
           @click.prevent="resetPassword"
-          class="form-control mt-3">Send Password Reset Link
+          class="form-control mt-4">Send Password Reset Link
         </button>
       </div>
       <Divider class="my-4 px-2 mx-4"/>
       <div class="text-center">
         <router-link class="new-account" to="/">Create New Account</router-link>
-        <hr class="mt-5">
+        <hr>
         <router-link to="/login">Back To Sign In</router-link>
       </div>
     </div>
@@ -75,6 +75,9 @@ export default {
   font-size:40px;
   color:rgba(0, 0, 0, .7);
 }
+#forgot-password hr{
+  margin-top:4.5rem;
+}
 #forgot-password h1 {
   color:rgba(0, 0, 0, .9);
   font-size:18px;
@@ -89,8 +92,12 @@ export default {
   font-size:13px;
 }
 #forgot-password input, button {
+  font-size: 15px;
+  height: 50px!important;
+  outline: none !important;
+  box-shadow: none !important;
+  padding: 10px 0px 0 25px;
   border-radius:40px!important;
-  outline:none!important;
   width:100%
 }
 #forgot-password button:disabled {
@@ -118,15 +125,16 @@ export default {
   border:none;
 }
 #forgot-password .inputText {
-  font-size: 14px;
+  font-size: 16px;
   height: 40px; 
 }
 #forgot-password .floating-label {
   position: absolute;
   pointer-events: none;
   left: 20px;
-  top: 16px;
-  color: rgba(0, 0, 0, .31)!important;
+  font-size: 16px;
+  top: 25px;
+  color: rgba(0, 0, 0, .40)!important;
   transition: 0.7s ease all;
 }
 #forgot-password button {

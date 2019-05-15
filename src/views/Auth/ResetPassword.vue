@@ -1,9 +1,9 @@
 <template>
   <div id="reset-password" class="row justify-content-center align-items-center">
-    <div class="bg-white col-md-3 py-3 p-0">
+    <div class="bg-white col-md-4 col-sm-7 col-10 py-3 p-0">
       <div class="row justify-content-center flex-column align-items-center px-5">
         <h1 class="pt-3 pb-4">FREYDA</h1>
-        <div id="input-group" class="form-control mb-3">
+        <div id="input-group" class="form-control mb-4">
           <input 
             type="text" 
             class="inputText"
@@ -23,7 +23,7 @@
         </div>
         <button
           :disabled="!passwordIsValid"
-          class="form-control mt-4 mb-5">Reset Password</button>
+          class="form-control mt-5 mb-5">Reset Password</button>
       </div> 
       <div class="text-center">
         <hr>
@@ -63,8 +63,12 @@ export default {
   font-weight:900;
 }
 #reset-password input, button {
+  font-size: 15px;
+  height: 50px!important;
+  outline: none !important;
+  box-shadow: none !important;
+  padding: 10px 0px 0 25px;
   border-radius:40px!important;
-  outline:none!important;
   width:100%
 }
 #reset-password input {
@@ -91,7 +95,7 @@ export default {
   position: absolute;
   pointer-events: none;
   left: 20px;
-  top: 16px;
+  top: 25px;
   color: rgba(0, 0, 0, .31)!important;
   transition: 0.7s ease all;
 }
