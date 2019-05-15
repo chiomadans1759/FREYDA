@@ -14,7 +14,7 @@ export const router = new Router({
       name: 'auth-layout',
       component: () => import('@/layouts/Auth'),
       children: [
-        { path: 'login', name: 'login', component: () => import('@/views/Auth/Login') },
+        { path: 'login', name: 'login', component: () => import('@/views/Auth/Login/Login') },
         { path: 'register', name: 'register', component: () => import('@/views/Auth/Register') },
         { path: 'forgot-password', name: 'forgot-password', component: () => import('@/views/Auth/ForgotPassword') },
         { path: 'reset-password', name: 'reset-password', component: () => import('@/views/Auth/ResetPassword') },
@@ -28,7 +28,7 @@ export const router = new Router({
         requiresAuth: true
       },
       children: [
-        { path: 'dashboard', name: 'dashboard', component: () => import('@/views/Admin/Dashboard') }
+        { path: 'dashboard', name: 'dashboard', component: () => import('@/views/Admin/Dashboard/Dashboard') }
       ]
     }
   ]
