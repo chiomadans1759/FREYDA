@@ -12,8 +12,8 @@
 </template>
 
 <script>
-import AdminSidebar from "@/components/AdminSidebar/AdminSidebar"
-import AdminHeader from "@/components/AdminHeader/AdminHeader"
+import AdminSidebar from "@/components/AdminSidebar"
+import AdminHeader from "@/components/AdminHeader"
 
 export default {
   components: {

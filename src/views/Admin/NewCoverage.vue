@@ -3,8 +3,13 @@
 		<div class="container">
 			<div class="card rounded-0">
 				<div class="card-header bg-white">
-					<h6 class="card-header-title text-center mb-0 text-primary">
-						<b>NEW COVERAGE</b>
+					<h6 class="card-header-title mb-0 text-primary">
+						<b>
+							<a href="#" @click.prevent="$router.go(-1)">
+								<i class="fa fa-chevron-left mr-3"></i>
+							</a>
+							NEW COVERAGE
+						</b>
 					</h6>
 				</div>
 
@@ -47,7 +52,47 @@ export default {
 </script>
 
 <style scoped>
-@import "./NewCoverage.css";
+#new-coverage .text-primary {
+  color: #578a8d !important;
+}
+
+#new-coverage .card-header-title a {
+  color: rgba(87, 138, 141, 0.7) !important;
+}
+
+#new-coverage .card-header-title 
+a:hover {
+  color: #578a8d !important;
+}
+
+#new-coverage .btn:focus, .btn:active {
+	outline: none !important;
+	box-shadow: none !important;
+	-webkit-box-shadow: none !important;
+}
+
+#new-coverage .btn-primary {
+	background-color: #578a8d;
+	border-color: #578a8d;
+}
+
+#new-coverage .btn-primary:hover {
+	background-color: rgba(87, 138, 141, 0.8);
+	border-color: rgba(87, 138, 141, 0.8);
+}
+
+#new-coverage .form-control {
+	background-color: rgba(87, 138, 141, 0.1);
+	border: 0px;
+	color: #578a8d;
+	height: 2.7rem;
+}
+
+#new-coverage .form-control::placeholder {
+	font-style: italic;
+	padding-left: 2rem;
+	color: rgba(87, 138, 141, 0.5);
+}
 </style>
 
 
