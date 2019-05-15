@@ -27,7 +27,7 @@
       </div> 
       <div class="text-center">
         <hr>
-        <a href="#">Back To Sign In</a>
+        <router-link to="/login">Back To Sign In</router-link>
       </div>
     </div>
   </div>

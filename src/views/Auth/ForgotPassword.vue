@@ -16,14 +16,15 @@
         </div>
         <button
           :disabled="!emailIsValid"
+          @click.prevent="resetPassword"
           class="form-control mt-3">Send Password Reset Link
         </button>
       </div>
       <Divider class="my-4 px-2 mx-4"/>
       <div class="text-center">
-        <h2 class="mb-5 pb-2">Create New Account</h2>
-        <hr>
-        <a href="#">Back To Sign In</a>
+        <router-link class="new-account" to="/">Create New Account</router-link>
+        <hr class="mt-5">
+        <router-link to="/login">Back To Sign In</router-link>
       </div>
     </div>
   </div>
@@ -46,7 +47,14 @@ export default {
       return this.email && exp.test(this.email)
     }
   },
-}
+  methods: {
+    resetPassword() {
+      if (this.emailIsValid) {
+          this.$router.push("/reset-password")
+        }
+      }
+    }  
+  }
 </script>
 
 <style>
@@ -72,7 +80,7 @@ export default {
   font-size:18px;
   font-weight:bold;
 }
-#forgot-password h2 {
+#forgot-password .new-account {
   color:rgba(0, 0, 0, .9);
   font-size:14px;
   font-weight:bold;
