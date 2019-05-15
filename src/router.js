@@ -14,17 +14,17 @@ export const router = new Router({
       name: 'auth-layout',
       component: () => import('@/layouts/Auth'),
       children: [
-        { path: 'login', name: 'login', component: () => import('@/views/Auth/Login/Login') },
+        { path: '', name: 'login', component: () => import('@/views/Auth/Login/Login') },
         { path: 'register', name: 'register', component: () => import('@/views/Auth/Register') },
         { path: 'forgot-password', name: 'forgot-password', component: () => import('@/views/Auth/ForgotPassword') }]
     },
     {
-      path: '/:username',
+      path: 'admin',
       name: 'admin-layout',
       component: () => import('@/layouts/Admin'),
-      meta: {
-        requiresAuth: true
-      },
+      // meta: {
+      //   requiresAuth: true
+      // },
       children: [
         { path: 'dashboard', name: 'dashboard', component: () => import('@/views/Admin/Dashboard/Dashboard') },
         { path: 'new-coverage', name: 'new-coverage', component: () => import('@/views/Admin/NewCoverage/NewCoverage') },
@@ -42,7 +42,7 @@ router.beforeEach((to, from, next) => {
     store.commit('setAuthSuccess', user);
   }
   if (requiresAuth && !currentUser) {
-    next('/login');
+    next('/');
   } else if (requiresAuth && currentUser) {
     next();
   } else {

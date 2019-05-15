@@ -89,6 +89,7 @@ export default {
   },
   methods: {
     ...mapActions(["login"]),
+
     handleSubmit(event) {
       this.submitted = true;
       this.$v.$touch();
@@ -97,8 +98,8 @@ export default {
       }
       let { identifier, password } = this.user;
       this.login(this.user)
-        .then(() => {
-          this.$router.push("/Admin/Dashboard'");
+        .then((user) => {
+          this.$router.push("/admin/dashboard'");
           this.$toastr.success("Success", "Login Successful");
         })
         .catch(error => {
