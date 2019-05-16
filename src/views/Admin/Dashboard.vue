@@ -299,5 +299,68 @@ export default {
 .dashboard .stat-cards .card .card-body {
   color: #578a8d;
 }
+
+.dashboard .modal-card {
+  position: absolute;
+  border: none;
+  margin-top: 40px;
+  left: -13px;
+}
+
+.dashboard .modal-content {
+  border: none;
+}
+
+.dashboard .modal-body {
+  border: none;
+  border: 1px solid red;
+  position: relative;
+  width: 100%;
+  float: right;
+}
+
+.dashboard .upload-title {
+  font-size: 16px;
+  text-align: center;
+  color: #558c90;
+  border-bottom: 0.5px solid #cccccc;
+}
+
+.dashboard .upload-text {
+  opacity: 0.59;
+}
+
+.dashboard .upload-icon {
+  opacity: 0.43;
+}
+
+.dashboard .fa-laptop {
+  font-size: 15px;
+  position: relative;
+  right: 23px;
+}
+
+.dashboard .laptop-text {
+  padding-left: 22px;
+}
+
+.dashboard .laptop-text:hover {
+  color: #558c90;
+}
+
+.dashboard .closes {
+  position: relative;
+  pointer-events: visible;
+  cursor: pointer;
+  float: right;
+  font-size: 30px;
+  color: #ffffff;
+  margin: 20px 15px 0 0;
+}
+
+.dashboard .disabled {
+  pointer-events: none;
+  opacity: 0.5;
+}
 </style>
 
