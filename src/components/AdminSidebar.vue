@@ -41,7 +41,7 @@
           </div>
         </div>
         
-        <div class="coverage pr-4">
+        <div class="coverage pr-1">
           <ul class="list-unstyled">
             <li class="list-item" v-for="coverage in investments.coverages" :key="coverage.id">
               <a class="fund-manager" data-toggle="collapse" href="#collapsePrivateEquity"> 
@@ -51,7 +51,7 @@
                     <label class="pl-1">{{coverage.fundStrategy}}</label>
                   </div>
 
-                  <div class="col-auto">
+                  <div class="col-auto text">
                     <i class="fa fa-caret-down"></i>
                   </div>
                 </div> 
@@ -61,10 +61,17 @@
                 <div class="collapse pl-4" id="collapsePrivateEquity">
                   <li class="funds" v-for="(manager, index) in coverage.fundManagers" :key="manager.id">
                     <a data-toggle="collapse" :href="`#collapse${index}`">
-                      <i class="fas fa-user"></i>
-                      <label class="pl-1" data-toggle="tooltip" data-placement="right" :title="manager.fundManager">
-                        {{manager.fundManager | truncate(16)}}
-                      </label>
+                      <div class="row">
+                        <div class="col">
+                          <i class="fas fa-user"></i>
+                          <label class="pl-1" data-toggle="tooltip" data-placement="right" :title="manager.fundManager">
+                            {{manager.fundManager | truncate(14)}}
+                          </label>
+                        </div>
+                        <div class="col-auto">
+                          <i class="fa fa-caret-down"></i>
+                        </div>
+                      </div>
                     </a>
 
                     <ul class="list-unstyled">
