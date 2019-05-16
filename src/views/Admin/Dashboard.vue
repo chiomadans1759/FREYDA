@@ -250,34 +250,38 @@ import DoughnutChart from "@/components/DoughnutChart";
 import BarChart from "@/components/BarChart";
 
 export default {
-  data() {
-    return {
-      pdfFile: null
-    };
-  },
   name: "dashboard",
   components: {
     DoughnutChart,
     BarChart
   },
-  methods: {
-    doSomething(files) {
-      var reader = new FileReader();
-      reader.onload = e => {
-        this.pdfFile = e.target.result;
-        console.log(this.pdfFile);
-      };
-      reader.readAsDataURL(files[0]);
-    },
-    closeModal() {
-      this.pdfFile = null;
-      $("#openModal").modal("hide");
-    }
+  created() {
+    console.log("hi");
   }
 };
 </script>
 
 <style scoped>
-@import "./Dashboard.css";
+.dashboard .stat-cards .card {
+  border-radius: 0px !important;
+  -webkit-box-shadow: 2px 2px 5px 0px rgba(214, 211, 214, 1);
+  -moz-box-shadow: 2px 2px 5px 0px rgba(214, 211, 214, 1);
+  box-shadow: 2px 2px 5px 0px rgba(214, 211, 214, 1);
+}
+
+.dashboard .stat-cards .card .card-header {
+  background-color: #ffffff !important;
+  border-color: rgba(87, 138, 141, 0.2);
+}
+
+.dashboard .stat-cards .card .card-header-title {
+  font-size: 11px !important;
+  font-weight: bold;
+  color: #666666;
+}
+
+.dashboard .stat-cards .card .card-body {
+  color: #578a8d;
+}
 </style>
 
