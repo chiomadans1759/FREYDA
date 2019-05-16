@@ -8,18 +8,17 @@
           </div>
 
           <div class="col-auto pt-1 p-0">
-            <a href="">
+            <a href>
               <i class="fa fa-bell pl-3"></i>
             </a>
           </div>
 
           <div class="col-auto pt-1 pb-0 pl-0">
-            <a href="">
-              <i class="fa fa-upload pl-3"></i>
+            <a href>
+              <i @click.prevent="openModal()" class="fa fa-upload pl-3"></i>
             </a>
           </div>
         </div>
-
         <div class="user">
           <h6 class="text-white mb-1">ABC Capital LLP</h6>
           <label>John Smith</label>
@@ -34,13 +33,13 @@
             </div>
 
             <div class="col-auto">
-              <router-link to="">
+              <router-link to>
                 <i class="fa fa-plus"></i>
               </router-link>
             </div>
           </div>
         </div>
-        
+
         <div class="coverage pl-2">
           <ul class="list-unstyled">
             <li class="list-item">
@@ -54,19 +53,19 @@
               <ul class="list-unstyled">
                 <div class="collapse pl-3" id="collapsePrivateEquity">
                   <li class="funds">
-                    <a href="">
+                    <a href>
                       <i class="fa fa-suitcase pr-1"></i>
                       Pantheon
                     </a>
                   </li>
                   <li class="funds">
-                    <a href="">
+                    <a href>
                       <i class="fa fa-suitcase pr-1"></i>
                       JPEL Private Equity Limited
                     </a>
                   </li>
                   <li class="funds">
-                    <a href="">
+                    <a href>
                       <i class="fa fa-suitcase pr-1"></i>
                       Fund Sleeve A
                     </a>
@@ -86,19 +85,19 @@
               <ul class="list-unstyled">
                 <div class="collapse pl-3" id="collapseAnotherEquity">
                   <li class="funds">
-                    <a href="">
+                    <a href>
                       <i class="fa fa-suitcase pr-1"></i>
                       Pantheon
                     </a>
                   </li>
                   <li class="funds">
-                    <a href="">
+                    <a href>
                       <i class="fa fa-suitcase pr-1"></i>
                       JPEL Private Equity Limited
                     </a>
                   </li>
                   <li class="funds">
-                    <a href="">
+                    <a href>
                       <i class="fa fa-suitcase pr-1"></i>
                       Fund Sleeve A
                     </a>
@@ -116,7 +115,7 @@
             </div>
 
             <div class="col-auto">
-              <router-link to="">
+              <router-link to>
                 <i class="fa fa-plus"></i>
               </router-link>
             </div>
@@ -126,7 +125,13 @@
         <div class="coverage pl-2">
           <ul class="list-unstyled">
             <li class="list-item">
-              <a class="fund-manager" data-toggle="collapse" href="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+              <a
+                class="fund-manager"
+                data-toggle="collapse"
+                href="#collapseExample"
+                aria-expanded="false"
+                aria-controls="collapseExample"
+              >
                 <i class="fas fa-chess-rook text-white"></i>
                 <label class="pl-1">Private Equity</label>
 
@@ -136,19 +141,19 @@
               <ul class="list-unstyled">
                 <div class="collapse pl-3" id="collapseExample">
                   <li class="funds">
-                    <a href="">
+                    <a href>
                       <i class="fa fa-suitcase pr-1"></i>
                       Pantheon
                     </a>
                   </li>
                   <li class="funds">
-                    <a href="">
+                    <a href>
                       <i class="fa fa-suitcase pr-1"></i>
                       JPEL Private Equity Limited
                     </a>
                   </li>
                   <li class="funds">
-                    <a href="">
+                    <a href>
                       <i class="fa fa-suitcase pr-1"></i>
                       Fund Sleeve A
                     </a>
@@ -158,7 +163,13 @@
             </li>
 
             <li class="list-item">
-              <a class="fund-manager" data-toggle="collapse" href="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+              <a
+                class="fund-manager"
+                data-toggle="collapse"
+                href="#collapseExample"
+                aria-expanded="false"
+                aria-controls="collapseExample"
+              >
                 <i class="fas fa-chess-rook text-white"></i>
                 <label class="pl-1">Private Equity</label>
 
@@ -168,19 +179,19 @@
               <ul class="list-unstyled">
                 <div class="collapse pl-3" id="collapseExample">
                   <li class="funds">
-                    <a href="">
+                    <a href>
                       <i class="fa fa-suitcase pr-1"></i>
                       Pantheon
                     </a>
                   </li>
                   <li class="funds">
-                    <a href="">
+                    <a href>
                       <i class="fa fa-suitcase pr-1"></i>
                       JPEL Private Equity Limited
                     </a>
                   </li>
                   <li class="funds">
-                    <a href="">
+                    <a href>
                       <i class="fa fa-suitcase pr-1"></i>
                       Fund Sleeve A
                     </a>
@@ -196,19 +207,19 @@
         <div class="collapse" id="collapseFooter">
           <ul class="list-unstyled">
             <li class="funds">
-              <a href="">
+              <a href>
                 <i class="fa fa-suitcase pr-1"></i>
                 Pantheon
               </a>
             </li>
             <li class="funds">
-              <a href="">
+              <a href>
                 <i class="fa fa-suitcase pr-1"></i>
                 JPEL Private Equity Limited
               </a>
             </li>
             <li class="funds">
-              <a href="">
+              <a href>
                 <i class="fa fa-suitcase pr-1"></i>
                 Fund Sleeve A
               </a>
@@ -226,12 +237,20 @@
 </template>
 
 <script>
-import { mapState, mapActions } from "vuex"
+import { mapState, mapActions } from "vuex";
 
 export default {
   name: "admin-sidebar",
+  data() {
+    return {
+      toggle: false
+    };
+  },
   methods: {
-    ...mapActions(["getInvestments"])
+    ...mapActions(["getInvestments"]),
+    openModal() {
+      $("#openModal").modal("show");
+    }
   },
   mounted() {
     this.getInvestments();

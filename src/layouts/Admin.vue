@@ -1,26 +1,26 @@
 <template>
   <main class="admin-layout">
-    <admin-sidebar class="sidebar" />
+    <admin-sidebar class="sidebar"/>
 
     <div class="main-content">
-      <admin-header />
+      <admin-header/>
       <div style="padding-top: 4rem;">
-        <router-view />
+        <router-view/>
       </div>
     </div>
   </main>
 </template>
 
 <script>
-import AdminSidebar from "@/components/AdminSidebar/AdminSidebar"
-import AdminHeader from "@/components/AdminHeader/AdminHeader"
+import AdminSidebar from "@/components/AdminSidebar/AdminSidebar";
+import AdminHeader from "@/components/AdminHeader/AdminHeader";
 
 export default {
   components: {
     AdminSidebar,
     AdminHeader
   }
-}
+};
 </script>
 
 <style scoped>
@@ -42,7 +42,7 @@ export default {
   float: right;
   width: 82%;
   height: auto;
-  z-index: 1000; 
+  z-index: 1000;
 }
 </style>
 
