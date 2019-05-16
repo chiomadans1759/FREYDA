@@ -21,8 +21,8 @@
         </div>
 
         <div class="user">
-          <h6 class="text-white mb-1">ABC Capital LLP</h6>
-          <label>John Smith</label>
+          <h6 class="text-white mb-1">{{auth.user.companyName}}</h6>
+          <label>{{auth.user.firstName}} {{auth.user.lastName}}</label>
         </div>
       </header>
 
@@ -43,65 +43,36 @@
         
         <div class="coverage pr-4">
           <ul class="list-unstyled">
-            <li class="list-item">
-              <a class="fund-manager" data-toggle="collapse" href="#collapsePrivateEquity">
-                <div class="container">
-                  <div class="row">
-                    <div class="col">
-                      <i class="fas fa-chess-rook text-white"></i>
-                      <label class="pl-1">Private Equity</label>
-                    </div>
-
-                    <div class="col-auto">
-                      <i class="fa fa-caret-down pl-3"></i>
-                    </div>
+            <li class="list-item" v-for="coverage in investments.coverages" :key="coverage.id">
+              <a class="fund-manager" data-toggle="collapse" href="#collapsePrivateEquity"> 
+                <div class="row pl-2">
+                  <div class="col">
+                    <i class="fas fa-chess-rook text-white"></i>
+                    <label class="pl-1">{{coverage.fundStrategy}}</label>
                   </div>
-                </div>
+
+                  <div class="col-auto">
+                    <i class="fa fa-caret-down"></i>
+                  </div>
+                </div> 
               </a>
 
               <ul class="list-unstyled mb-1">
                 <div class="collapse pl-4" id="collapsePrivateEquity">
-                  <li class="funds">
-                    <a data-toggle="collapse" href="#collapsePatrick">
+                  <li class="funds" v-for="(manager, index) in coverage.fundManagers" :key="manager.id">
+                    <a data-toggle="collapse" :href="`#collapse${index}`">
                       <i class="fas fa-user"></i>
-                      <label class="pl-1">Patrick William</label>
+                      <label class="pl-1" data-toggle="tooltip" data-placement="right" :title="manager.fundManager">
+                        {{manager.fundManager | truncate(16)}}
+                      </label>
                     </a>
 
                     <ul class="list-unstyled">
-                      <div class="collapse pl-3" id="collapsePatrick">
-                        <li class="list-item funds">
-                          <a href="">
+                      <div class="collapse pl-3" :id="`collapse${index}`">
+                        <li v-for="fund in manager.Funds" :key="fund.id" class="list-item funds">
+                          <a href="" data-toggle="tooltip" data-placement="right" :title="fund.fundName">
                             <i class="fa fa-suitcase"></i>
-                            Fund One
-                          </a>
-                        </li>
-                        <li class="list-item funds">
-                          <a href="">
-                            <i class="fa fa-suitcase"></i>
-                            Fund Two
-                          </a>
-                        </li>
-                      </div>
-                    </ul>
-                  </li>
-                  <li class="funds">
-                    <a data-toggle="collapse" href="#collapseCharles">
-                      <i class="fas fa-user"></i>
-                      <label class="pl-1">Charles Dickens</label>
-                    </a>
-
-                    <ul class="list-unstyled">
-                      <div class="collapse pl-3" id="collapseCharles">
-                        <li class="list-item funds">
-                          <a href="">
-                            <i class="fa fa-suitcase"></i>
-                            Fund One
-                          </a>
-                        </li>
-                        <li class="list-item funds">
-                          <a href="">
-                            <i class="fa fa-suitcase"></i>
-                            Fund Two
+                            {{fund.fundName | truncate(14)}}
                           </a>
                         </li>
                       </div>
@@ -235,10 +206,20 @@ import { mapState, mapActions } from "vuex"
 export default {
   name: "admin-sidebar",
   methods: {
-    ...mapActions(["getInvestments"])
+    ...mapActions(["getUserCoverages"])
   },
-  mounted() {
-    this.getInvestments();
+  filters: {
+    truncate(string, number) {
+      if (string.length >= number) {
+        return string.slice(0, number) + " ...";
+      } else {
+        return string;
+      }
+    }
+  },
+  async created() {
+    await this.getUserCoverages();
+    $('[data-toggle="tooltip"]').tooltip()
   },
   computed: {
     ...mapState(["auth", "investments"])
@@ -288,7 +269,7 @@ i {
 
 .admin-sidebar .body 
 ul li {
-  font-size: 15px;
+  font-size: 14px;
 }
 
 .admin-sidebar .body
