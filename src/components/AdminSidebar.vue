@@ -43,7 +43,7 @@
         
         <div class="coverage pr-1">
           <ul class="list-unstyled">
-            <li class="list-item" v-for="coverage in investments.coverages" :key="coverage.id">
+            <li class="list-item" v-for="(coverage, index) in investments.coverages" :key="coverage.id">
               <a class="fund-manager" data-toggle="collapse" href="#collapsePrivateEquity"> 
                 <div class="row pl-2">
                   <div class="col">

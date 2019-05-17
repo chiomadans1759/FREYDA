@@ -6,6 +6,7 @@ export default {
     investments: [],
     coverages: []
   },
+
   mutations: {
     startRequest(state) {
       state.isFetching = true;
@@ -23,6 +24,7 @@ export default {
       state.isFetching = false;
     }
   },
+
   actions: {
     async getInvestments({ state, commit }) {
       commit("startRequest");
@@ -48,8 +50,20 @@ export default {
         commit("endAuthRequest");
         throw new Error(error.response.data.error.message);
       }
+    },
+    async createUserCoverage({ commit }, payload) {
+      commit("startRequest");
+      try {
+        const response = await http.post("/coverages/create", payload);
+        return response
+        commit("endRequest");
+      } catch (error) {
+        commit("endAuthRequest");
+        throw new Error(error.response.data.error.message);
+      }
     }
   },
+
   getters: {
     getInvestments: state => {
       if (state.investments === []) {

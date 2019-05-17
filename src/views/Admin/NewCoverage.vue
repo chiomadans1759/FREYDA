@@ -19,23 +19,41 @@
 							<div class="form-group mb-5">
 								<b class="text-primary">STRATEGY</b>
 
-								<input type="text" v-model="coverage.strategy" class="form-control" placeholder="Enter new strategy">
+								<input
+									required
+									type="text" 
+									v-model="coverage.fundStrategy" 
+									class="form-control" 
+									placeholder="Enter new strategy">
 							</div>
 
 							<div class="form-group mb-5">
 								<b class="text-primary">MANAGER</b>
 
-								<input type="text" v-model="coverage.manager"  class="form-control" placeholder="Enter new manager">
+								<input
+									required
+									type="text" 
+									v-model="coverage.fundManager"  
+									class="form-control" 
+									placeholder="Enter new manager">
 							</div>
 
 							<div class="form-group mb-5">
 								<b class="text-primary">FUND</b>
 
-								<input type="text" v-model="coverage.fund"  class="form-control" placeholder="Enter new fund">
+								<input
+									required
+									type="text" 
+									v-model="coverage.fundName"  
+									class="form-control" 
+									placeholder="Enter new fund">
 							</div>
 
 							<div class="text-center">
-								<button class="btn btn-primary">Save Coverage</button>
+								<button
+									@click.prevent="createCoverage" 
+									:disabled="!fieldsAreValid || disable == true"
+									class="btn btn-primary">Save Coverage</button>
 							</div>
 						</div>
 					</div>
@@ -46,13 +64,38 @@
 </template>
 
 <script>
+import { mapActions, mapState } from "vuex"
+
 export default {
 	name: "new-coverage",
 	data() {
 		return {
-			coverage: {}
+			coverage: {},
+			disable: false
 		}
-	}
+	},
+	methods: {
+		...mapActions(["createUserCoverage"]),
+
+		createCoverage(){ 
+			this.createUserCoverage(this.coverage)
+				.then(() => {
+          this.$toastr.success(
+            "New Coverage succesfully created"
+          );
+        })
+        .catch(error => {
+          this.$toastr.error(error.message);
+        });
+		}
+	},
+	computed: {
+		...mapState(["investments"]),
+
+		fieldsAreValid(){ 
+      return this.coverage.fundStrategy && this.coverage.fundManager && this.coverage.fundName;
+    }
+  }
 }
 </script>
 
