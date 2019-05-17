@@ -19,19 +19,19 @@
 							<div class="form-group mb-5">
 								<b class="text-primary">STRATEGY</b>
 
-								<input type="text" class="form-control" placeholder="Enter new strategy">
+								<input type="text" v-model="coverage.strategy" class="form-control" placeholder="Enter new strategy">
 							</div>
 
 							<div class="form-group mb-5">
 								<b class="text-primary">MANAGER</b>
 
-								<input type="text" class="form-control" placeholder="Enter new manager">
+								<input type="text" v-model="coverage.manager"  class="form-control" placeholder="Enter new manager">
 							</div>
 
 							<div class="form-group mb-5">
 								<b class="text-primary">FUND</b>
 
-								<input type="text" class="form-control" placeholder="Enter new fund">
+								<input type="text" v-model="coverage.fund"  class="form-control" placeholder="Enter new fund">
 							</div>
 
 							<div class="text-center">
@@ -47,7 +47,12 @@
 
 <script>
 export default {
-	name: "new-coverage"
+	name: "new-coverage",
+	data() {
+		return {
+			coverage: {}
+		}
+	}
 }
 </script>
 
