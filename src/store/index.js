@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
 import auth from './auth'
-import coverage from "./coverage";
+import coverage from './coverage';
 
 Vue.use(Vuex)
 
