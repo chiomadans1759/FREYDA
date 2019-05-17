@@ -16,149 +16,38 @@
 				<div class="card-body">
 					<div class="row justify-content-center py-4">
 						<div class="col-md-5">
-							<div class="form-group mb-5">
-								<b class="text-primary">STRATEGY</b>
-
-								<div class="dropdown mt-2">
-									<button class="btn btn-block" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-										<div class="container">
-											<span class="float-left">Private Equity</span>
-
-											<span class="float-right">
-												<i class="fa fa-plus-circle"></i>
-											</span>
-										</div>
-									</button>
-
-									<div class="dropdown-menu pb-0">
-										<a class="dropdown-item bg-white" href="#" id="dropdown-heading">
-											<b><i class="fa fa-plus"></i> Create new strategy</b>
-										</a>
-
-										<div class="dropdown-divider mb-0"></div>
-
-										<a class="dropdown-item" href="#">
-											<div class="row">
-												<span class="col">Private Investment</span>
-
-												<span class="col-auto">
-													<i class="fa fa-plus-circle"></i>
-												</span>
-											</div>
-										</a>
-										<a class="dropdown-item" href="#">
-											<div class="row">
-												<span class="col">Another Investment</span>
-
-												<span class="col-auto">
-													<i class="fa fa-plus-circle"></i>
-												</span>
-											</div>
-										</a>
-									</div>
-								</div>
+							<div class="btn-group" style="width: 100%;">
+								<button type="button" 
+												@click.prevent="selectType('manager')"
+												:class="{'btn  rounded-0': true, 'btn-primary': type == 'manager', 'btn-white': type != 'manager'}">
+									MANAGER
+								</button>
+								<button type="button" 
+												@click.prevent="selectType('fund')"
+												:class="{'btn rounded-0': true, 'btn-primary': type == 'fund', 'btn-white': type != 'fund'}">
+									FUND
+								</button>
 							</div>
 
-							<div class="form-group mb-5">
-								<b class="text-primary">MANAGER</b>
+							<ul class="list-group select-list pt-1 mb-3">
+								<li :class="{'list-group-item rounded-0 mb-1': true, 'active': selected.includes(i)}" 
+										v-for="(item, i) in 5" :key="i" 
+										@click="selectItem(i)">
+									<div class="row">
+										<div class="col">Cras justo odio</div>
 
-								<div class="dropdown mt-2">
-									<button class="btn btn-block" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-										<div class="container">
-											<span class="float-left">Abedeen Fund Manager</span>
-
-											<span class="float-right">
-												<i class="fa fa-plus-circle"></i>
-											</span>
+										<div class="col-auto">
+											<i class="fa fa-check" v-if="selected.includes(i)"></i>
+											<i class="fa fa-plus-circle" v-else></i>
 										</div>
-									</button>
-									
-									<div class="dropdown-menu pb-0">
-										<a class="dropdown-item bg-white" href="#" id="dropdown-heading">
-											<b><i class="fa fa-plus"></i> Create new manager</b>
-										</a>
-
-										<div class="dropdown-divider mb-0"></div>
-
-										<a class="dropdown-item" href="#">
-											<div class="row">
-												<span class="col">Clive Douglas</span>
-
-												<span class="col-auto">
-													<i class="fa fa-plus-circle"></i>
-												</span>
-											</div>
-										</a>
-										<a class="dropdown-item" href="#">
-											<div class="row">
-												<span class="col">Grasham House</span>
-
-												<span class="col-auto">
-													<i class="fa fa-plus-circle"></i>
-												</span>
-											</div>
-										</a>
-										<a class="dropdown-item" href="#">
-											<div class="row">
-												<span class="col">Hamilton Lane</span>
-
-												<span class="col-auto">
-													<i class="fa fa-plus-circle"></i>
-												</span>
-											</div>
-										</a>
-										<a class="dropdown-item" href="#">
-											<div class="row">
-												<span class="col">Patheon Group</span>
-
-												<span class="col-auto">
-													<i class="fa fa-plus-circle"></i>
-												</span>
-											</div>
-										</a>
 									</div>
-								</div>
-							</div>
-
-							<div class="form-group mb-5">
-								<b class="text-primary">FUND</b>
-
-								<div class="dropdown mt-2">
-									<button class="btn btn-block" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-										<div class="container">
-											<span class="float-left">Abedeen Fund II</span>
-
-											<span class="float-right">
-												<i class="fa fa-plus-circle"></i>
-											</span>
-										</div>
-									</button>
-
-									<div class="dropdown-menu py-0">
-										<a class="dropdown-item" href="#">
-											<div class="row">
-												<span class="col">Fund One</span>
-
-												<span class="col-auto">
-													<i class="fa fa-plus-circle"></i>
-												</span>
-											</div>
-										</a>
-										<a class="dropdown-item" href="#">
-											<div class="row">
-												<span class="col">Fund Two</span>
-
-												<span class="col-auto">
-													<i class="fa fa-plus-circle"></i>
-												</span>
-											</div>
-										</a>
-									</div>
-								</div>
-							</div>
+								</li>
+							</ul>
 
 							<div class="text-center">
-								<button class="btn btn-primary">Save watchlist</button>
+								<button class="btn btn-primary">
+									<b>Save watchlist</b>
+								</button>
 							</div>
 						</div>
 					</div>
@@ -170,7 +59,29 @@
 
 <script>
 export default {
-	name: "new-watchlist"
+	name: "new-watchlist",
+	data() {
+		return {
+			selected: [],
+			type: "manager"
+		}
+	},
+	methods: {
+		selectType(type) {
+			this.type = type
+		},
+
+		selectItem(item) {
+      if (this.selected.includes(item)) {
+        let index = this.selected.indexOf(item)
+        if (index !== -1) {
+          this.selected.splice(index, 1)
+        }
+      } else {
+        this.selected.push(item)
+      } 
+		}
+	}
 }
 </script>
 
@@ -199,41 +110,48 @@ a:hover {
 	border-color: #578a8d;
 }
 
+#new-watchlist .btn-white {
+	border-color: #eeeeee;
+	color: #578a8d;
+}
+
 #new-watchlist .btn-primary:hover {
 	background-color: rgba(87, 138, 141, 0.8);
 	border-color: rgba(87, 138, 141, 0.8);
 }
 
-#new-watchlist .dropdown-menu {
-	width: 100%;
-	border: 0px;
-	-webkit-box-shadow: 0px 0px 5px 0px rgba(179,177,179,1);
-	-moz-box-shadow: 0px 0px 5px 0px rgba(179,177,179,1);
-	box-shadow: 0px 0px 5px 0px rgba(179,177,179,1);
+#new-watchlist .select-list {
+	max-height: 20rem;
+	overflow-y: auto;
 }
 
-#new-watchlist #dropdown-heading:hover {
-	color: rgba(87, 138, 141, 0.7);
+#new-watchlist 
+.select-list::-webkit-scrollbar {
+  width: 0.4rem;
+}
+ 
+#new-watchlist 
+.select-list::-webkit-scrollbar-track {
+  -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+}
+ 
+#new-watchlist 
+.select-list::-webkit-scrollbar-thumb {
+  background-color: #bbbbbb;
+  outline: 1px solid slategrey;
+	border-radius: 50px;
 }
 
-#new-watchlist .dropdown-menu a {
+#new-watchlist .select-list li {
 	background-color: rgba(87, 138, 141, 0.1);
+	border-color: #eeeeee;
 	color: #578a8d;
-	height: 3rem;
-	margin-bottom: 3px;
-	padding-top: 1rem;
+	cursor: pointer;
 }
 
-#new-watchlist .dropdown-menu a:hover {
+#new-watchlist .select-list li.active {
 	background-color: #578a8d;
 	color: #ffffff;
-}
-
-#new-watchlist .dropdown .btn {
-	background-color: rgba(87, 138, 141, 0.2);
-	border: 0px;
-	height: 2.8rem;
-	color: #578a8d;
 }
 </style>
 
