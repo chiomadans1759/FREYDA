@@ -237,7 +237,11 @@
             <embed :src="pdfFile" type="application/pdf" width="100%" height="900px">
           </div>
           <div class="col-md-6 pdf-post mt-3">
-            <h4>stuff</h4>
+            <div class="pdf-post-container">
+              <div class="d-flex justify-content-center">
+                <h4></h4>All powerful python code
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -361,6 +365,12 @@ export default {
 .dashboard .disabled {
   pointer-events: none;
   opacity: 0.5;
+}
+.dashboard .pdf-post-container {
+  background: #ffffff;
+  position: fixed;
+  width: 47%;
+  height: 85vh;
 }
 </style>
 
