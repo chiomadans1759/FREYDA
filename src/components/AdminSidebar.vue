@@ -301,8 +301,7 @@ export default {
   margin-bottom: 0rem;
 }
 
-.admin-sidebar .body .fund-manager:hover,
-.admin-sidebar .body .fund-manager:focus {
+.admin-sidebar .body .fund-manager:hover {
   color: rgba(255, 255, 255, 1);
   text-decoration: none;
   font-weight:bold;
